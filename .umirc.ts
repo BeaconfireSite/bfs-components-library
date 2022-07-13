@@ -1,6 +1,6 @@
 import { defineConfig } from 'dumi';
 
-const repo = 'bfs-components-library';
+const repo = 'dumi-test';
 
 export default defineConfig({
   title: repo,
@@ -18,7 +18,7 @@ export default defineConfig({
     null,
     {
       title: 'GitHub',
-      path: 'https://github.com/umijs/dumi-template',
+      path: 'https://github.com/Zhiyue-Li/dumi-test',
     },
   ],
   // more config: https://d.umijs.org/config
