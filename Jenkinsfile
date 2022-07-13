@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Npm Install') {
             steps {
-                sh 'npm install --verbose -d'
+                sh 'npm install --verbose -d --legacy-peer-deps'
                 echo "Npm install successfully!"
             }
         }
