@@ -1,0 +1,54 @@
+.bfs-radio {
+    &.vertical {
+        .ant-radio-group {
+            display: inline-flex;
+            flex-direction: column;
+        }
+    }
+
+    &.horizontal {
+        .ant-radio-group {
+            display: inline-flex;
+            flex-direction: row;
+        }
+    }
+
+    .title {
+        font-size: 12px;
+        font-weight: 400;
+        height: 16px;
+        color: #4A585F;
+        margin-bottom: 4px;
+    }
+
+    .ant-radio-group {
+
+        .ant-radio-wrapper {
+        
+            .ant-radio {
+
+                &:hover .ant-radio-inner {
+                    border-color: #8FCE28;
+                }
+
+                .ant-radio-inner {
+                    border-color: #E0E0E0;
+                }
+
+                .ant-radio-inner::after {
+                    background-color: #8FCE28;
+                }
+                
+                &.ant-radio-checked {
+                    .ant-radio-inner { 
+                        border-color: #8FCE28;
+                    }
+                }
+
+                &.ant-radio-checked::after {
+                    border-color: #8FCE28;
+                }
+            }
+        }
+    }
+}

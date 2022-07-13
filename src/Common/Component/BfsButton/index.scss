@@ -1,0 +1,95 @@
+.bfs-button {
+    font-weight: 500;
+    border-radius: 3px;
+    display: inline-block;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.bfs-button--primary {
+    border: none;
+    color: white;
+    background-color: #28A0CE;
+}
+
+.bfs-button--primary:hover {
+    background-color: #38B0DE;
+}
+
+.bfs-button--primary:active {
+    background-color: #174488;
+}
+
+.bfs-button--warning {
+    border: none;
+    color: white;
+    background-color: #FFB121;
+}
+
+.bfs-button--warning:hover {
+    background-color: #FFC131;
+}
+
+.bfs-button--warning:active {
+    background-color: #EFA111;
+}
+
+.bfs-button--danger {
+    border: none;
+    color: white;
+    background-color: #F67C6B;
+}
+
+.bfs-button--danger:hover {
+    background-color: #FF8C7B;
+}
+
+.bfs-button--danger:active {
+    background-color: #E66C5B;
+}
+
+.bfs-button--subtle {
+    border: 1px solid #95A5AC;
+    color: #95A5AC;
+    background-color: white;
+}
+
+.bfs-button--subtle:hover {
+    border: 1px solid #95A5AC;
+    background-color: #E0E0E0;
+}
+
+.bfs-button--subtle:active {
+    border: 1px solid #F0F0F0;
+    background-color: #F0F0F0;
+}
+
+.bfs-button--link {
+    border: 1px solid transparent;
+    color: #28A0CE;
+    background: none;
+}
+
+.bfs-button--link:hover {
+    text-decoration: underline;
+}
+
+.bfs-button--link:active {
+    text-decoration: none;
+    color: #174488;
+}
+
+.bfs-button--disabled {
+    cursor: default;
+    border: none;
+    color: white;
+    background-color: #E0E0E0;
+}
+
+.bfs-button--small {
+    padding: 2px 12px;
+}
+
+.bfs-button--medium {
+    padding: 6px 12px;
+}

@@ -1,0 +1,31 @@
+.bfs-status-chip {
+    font-weight: 500;
+    border-radius: 3px;
+    border: 3px solid transparent;
+    padding: 6px 12px;
+    display: inline-block;
+    box-sizing: border-box;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.bfs-status-chip--default {
+    background-color: rgba(224, 224, 224, 1);
+}
+
+.bfs-status-chip--available {
+    background-color: rgba(143, 206, 40, 0.2);
+}
+
+.bfs-status-chip--reserved {
+    background-color: rgba(250, 215, 100, 0.5);
+}
+
+.bfs-status-chip--highlight {
+    border-bottom: 3px solid #FFB121;
+}
+
+.bfs-status-chip--disabled {
+    cursor: default;
+    background-color: rgba(224, 224, 224, 1);
+}

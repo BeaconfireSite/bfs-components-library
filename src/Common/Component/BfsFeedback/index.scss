@@ -1,0 +1,71 @@
+.bfs-feedback {
+    border: 1px solid #E0E0E0;
+    border-radius: 3px;
+    padding: 24px 32px;
+    color: #0E1E25;
+
+    .bfs-feedback-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+    
+        .bfs-feedback-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            width: 100%;
+    
+            .bfs-feedback-header-title {
+                font-size: 15px;
+                font-weight: 600;
+                padding-right: 8px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: pre;
+            }
+    
+            .bfs-feedback-header-icon {
+                cursor: pointer;
+                font-size: 20px;
+            }
+        }
+    
+        .bfs-comment-info {
+
+            .bfs-comment-info-author {
+                font-size: 14px;
+                padding-right: 8px;
+                color: #FFB121;
+            }
+
+            .bfs-comment-info-date {
+                font-size: 12px;
+                font-weight: 300;
+                color: #4A585F;
+            }
+        }
+
+        .bfs-feedback-sections {
+            width: 100%;
+            padding-top: 8px;
+
+            .bfs-feedback-section {
+                padding: 8px 0px;
+
+                .bfs-feedback-section-title {
+                    font-weight: 600;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: pre;
+                }
+
+                .bfs-feedback-section-body {
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+}
