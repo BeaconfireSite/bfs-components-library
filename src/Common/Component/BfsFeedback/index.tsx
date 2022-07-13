@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MoreOutlined } from '@ant-design/icons';
+// @ts-ignore
 import { BfsComment } from 'bfs-components-library';
 
 import './index.scss';

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import moment from 'moment';
+// @ts-ignore
 import { BfsStatusChip } from 'bfs-components-library';
 
 import './index.scss';
