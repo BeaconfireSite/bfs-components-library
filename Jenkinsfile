@@ -29,10 +29,21 @@ pipeline {
                 echo "Npm install successfully!"
             }
         }
-        stage('Release') {
+        stage('Build bundle') {
             steps {
-                sh 'npm run release'
-                echo "Released successfully!"
+                sh 'npm run build'
+                echo "Built successfully"
+            }
+        }
+        stage('Publish Npm') {
+            steps {
+                withCredentials([string(credentialsId: 'npm_auto_token', variable: 'NPM_TOKEN')]) {
+                    sh "echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc"
+                }
+                sh 'npm whoami'
+                sh 'npm publish'
+                echo "Published successfully"
+                sh 'rm .npmrc'   
             }
         }
     }
