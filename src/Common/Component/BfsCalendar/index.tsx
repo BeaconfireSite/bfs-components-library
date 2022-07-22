@@ -63,7 +63,7 @@ const BfsCalendar = ({
         </thead>
         <tbody>
           {[...Array(hours).keys()].map((hour: number) => (
-            <tr>{renderContent(startDate, hour)}</tr>
+            <tr key={hour}>{renderContent(startDate, hour)}</tr>
           ))}
         </tbody>
       </table>
