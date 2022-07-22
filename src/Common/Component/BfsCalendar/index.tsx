@@ -1,69 +1,17 @@
 import React, { useState } from 'react';
 import moment from 'moment';
-// @ts-ignore
-import { BfsStatusChip } from 'bfs-components-library';
 
 import './index.scss';
 
 const BfsCalendar = ({
-  onTimeSlotClick,
+  hours = 9,
+  renderContent,
   ...props
 }: {
-  onTimeSlotClick: (timeSlot: string) => void;
+  hours: number;
+  renderContent: (startDate: moment.Moment, hour: number) => React.ReactNode;
 }) => {
-  const hours = {
-    9: {
-      available: true,
-      events: [],
-    },
-    10: {
-      available: true,
-      events: [{}, {}],
-    },
-    11: {
-      available: true,
-      events: [{}, {}],
-    },
-    12: {
-      available: false,
-      events: [{}],
-    },
-    13: {
-      available: true,
-      events: [],
-    },
-    14: {
-      available: true,
-      events: [{}, {}],
-    },
-    15: {
-      available: false,
-      events: [],
-    },
-    16: {
-      available: true,
-      events: [{}, {}],
-    },
-    17: {
-      available: true,
-      events: [],
-    },
-    18: {
-      available: true,
-      events: [{}, {}],
-    },
-  };
-  const days = {
-    1: hours,
-    2: hours,
-    3: hours,
-    4: hours,
-    5: hours,
-    6: hours,
-    7: hours,
-  };
   const [startDate, setStartDate] = useState(moment().startOf('week'));
-  const [selectedTimeslot, setSelectedTimeslot] = useState<string | null>(null);
 
   const handlePrevWeek = () => {
     setStartDate(moment(startDate.subtract(1, 'd').startOf('week')));
@@ -71,33 +19,6 @@ const BfsCalendar = ({
 
   const handleNextWeek = () => {
     setStartDate(moment(startDate.endOf('week').add(1, 'd')));
-  };
-
-  const handleTimeslotClick = (timeslot: string) => {
-    setSelectedTimeslot(timeslot);
-    onTimeSlotClick(timeslot);
-  };
-
-  const convertTime = (hour: number) => {
-    if (hour < 10) {
-      return `0${hour}:00 am`;
-    } else if (hour <= 12) {
-      return `${hour}:00 am`;
-    } else {
-      return `0${hour - 12}:00 pm`;
-    }
-  };
-
-  const isSelected = (day: number, hour: number) => {
-    return `${day} ${hour}` === selectedTimeslot;
-  };
-
-  const getStatus = (timeslot: any) => {
-    if (timeslot.available && timeslot.events.length < 2) {
-      return 'available';
-    } else if (timeslot.available && timeslot.events.length === 2) {
-      return 'reserved';
-    }
   };
 
   return (
@@ -124,7 +45,7 @@ const BfsCalendar = ({
       <table>
         <thead>
           <tr>
-            {Object.entries(days).map(([day, hours]) => (
+            {[...Array(5).keys()].map((day: number) => (
               <th className="bfs-calendar-table-header" key={day} align="left">
                 <div className="bfs-calendar-weekday">
                   {moment(startDate)
@@ -141,34 +62,9 @@ const BfsCalendar = ({
           </tr>
         </thead>
         <tbody>
-          <tr>
-            {Object.entries(days).map(
-              ([day, hours]) =>
-                Number(day) < 6 && (
-                  <td
-                    className="bfs-calendar-table-cell"
-                    align="left"
-                    key={day}
-                  >
-                    {Object.entries(hours).map(([hour, timeslot]) => (
-                      <BfsStatusChip
-                        status={getStatus(timeslot)}
-                        disabled={!timeslot.available}
-                        highlight={isSelected(Number(day), Number(hour))}
-                        onClick={() =>
-                          timeslot.available &&
-                          handleTimeslotClick(`${day} ${hour}`)
-                        }
-                        key={hour}
-                        style={{ marginTop: '5px', marginBottom: '5px' }}
-                      >
-                        {convertTime(Number(hour))}
-                      </BfsStatusChip>
-                    ))}
-                  </td>
-                ),
-            )}
-          </tr>
+          {[...Array(hours).keys()].map((hour: number) => (
+            <tr>{renderContent(startDate, hour)}</tr>
+          ))}
         </tbody>
       </table>
     </>
