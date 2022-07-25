@@ -10,6 +10,7 @@ import 'antd/dist/antd.css';
 import './index.scss';
 
 const BfsFullCalendar = ({
+  className,
   initialView,
   slotMinTime,
   slotMaxTime,
@@ -22,6 +23,7 @@ const BfsFullCalendar = ({
   onCalendarsSelect,
   ...props
 }: {
+  className: string;
   initialView: 'timeGridDay' | 'timeGridWeek' | 'dayGridMonth';
   slotMinTime: string;
   slotMaxTime: string;
@@ -99,7 +101,7 @@ const BfsFullCalendar = ({
   };
 
   return (
-    <div className="bfs-fullcalendar-wrapper">
+    <div className={`bfs-fullcalendar-wrapper ${className}`}>
       <div className="bfs-fullcalendar-control-panel">
         <div className="bfs-fullcalendar-calendar-selector">
           <div className="calendar-selector-label">Calendars</div>
