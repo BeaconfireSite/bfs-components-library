@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import FullCalendar, { DateSelectArg } from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { Checkbox } from 'antd';
 
 import 'antd/dist/antd.css';
 import './index.scss';
@@ -20,8 +19,6 @@ const BfsFullCalendar = ({
   allDaySlot,
   selectable,
   select,
-  defaultSelection,
-  onCalendarsSelect,
   ...props
 }: {
   style?: React.CSSProperties;
@@ -34,23 +31,7 @@ const BfsFullCalendar = ({
   allDaySlot: boolean;
   selectable: boolean;
   select: ((arg: DateSelectArg) => void) | undefined;
-  defaultSelection: any;
-  onCalendarsSelect: (selectedCalendars: any) => void;
 }) => {
-  const [calendarSelection, setCalendarSelection] = useState(
-    defaultSelection
-      ? defaultSelection
-      : {
-          phone: false,
-          technical: false,
-          manager: false,
-        },
-  );
-
-  useEffect(() => {
-    onCalendarsSelect ? onCalendarsSelect(calendarSelection) : null;
-  }, [calendarSelection]);
-
   const dayHeaderContent = (arg: any) => {
     return (
       <div className="bfs-fullcalendar-header">
@@ -93,45 +74,8 @@ const BfsFullCalendar = ({
     );
   };
 
-  const onChange = (e: any, calendar: any) => {
-    setCalendarSelection((prevState: any) => {
-      return {
-        ...prevState,
-        [calendar]: e.target.checked,
-      };
-    });
-  };
-
   return (
     <div className={`bfs-fullcalendar-wrapper ${className}`} style={style}>
-      <div className="bfs-fullcalendar-control-panel">
-        <div className="bfs-fullcalendar-calendar-selector">
-          <div className="calendar-selector-label">Calendars</div>
-          <Checkbox
-            className="calendar-selector-phone"
-            defaultChecked={calendarSelection['phone']}
-            onChange={e => onChange(e, 'phone')}
-          >
-            Phone Screening
-          </Checkbox>
-          <br />
-          <Checkbox
-            className="calendar-selector-technical"
-            defaultChecked={calendarSelection['technical']}
-            onChange={e => onChange(e, 'technical')}
-          >
-            Technical Round
-          </Checkbox>
-          <br />
-          <Checkbox
-            className="calendar-selector-manager"
-            defaultChecked={calendarSelection['manager']}
-            onChange={e => onChange(e, 'manager')}
-          >
-            Manager Round
-          </Checkbox>
-        </div>
-      </div>
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         dayHeaderContent={dayHeaderContent}
@@ -180,7 +124,6 @@ BfsFullCalendar.propTypes = {
     technical: PropTypes.bool,
     manager: PropTypes.bool,
   }),
-  onCalendarsSelect: PropTypes.func,
 };
 
 BfsFullCalendar.defaultProps = {
