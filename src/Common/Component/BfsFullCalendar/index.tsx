@@ -7,32 +7,35 @@ import interactionPlugin from '@fullcalendar/interaction';
 import 'antd/dist/antd.css';
 import './index.scss';
 
+interface Props {
+  style?: React.CSSProperties;
+  className?: string;
+  initialView: 'timeGridDay' | 'timeGridWeek' | 'dayGridMonth';
+  slotMinTime: string;
+  slotMaxTime: string;
+  slotDuration: string;
+  slotLabelInterval: string;
+  allDaySlot: boolean;
+  selectable: boolean;
+  select: ((arg: DateSelectArg) => void) | undefined;
+  [x: string]: any;
+}
+
 const BfsFullCalendar = React.forwardRef(
   (
     {
       style,
       className,
-      initialView,
-      slotMinTime,
-      slotMaxTime,
-      slotDuration,
-      slotLabelInterval,
-      allDaySlot,
-      selectable,
+      initialView = 'timeGridWeek',
+      slotMinTime = '08:00',
+      slotMaxTime = '18:00',
+      slotDuration = '00:15',
+      slotLabelInterval = '01:00',
+      allDaySlot = true,
+      selectable = true,
       select,
       ...props
-    }: {
-      style?: React.CSSProperties;
-      className?: string;
-      initialView: 'timeGridDay' | 'timeGridWeek' | 'dayGridMonth';
-      slotMinTime: string;
-      slotMaxTime: string;
-      slotDuration: string;
-      slotLabelInterval: string;
-      allDaySlot: boolean;
-      selectable: boolean;
-      select: ((arg: DateSelectArg) => void) | undefined;
-    },
+    }: Props,
     ref: LegacyRef<FullCalendar>,
   ) => {
     const dayHeaderContent = (arg: any) => {
@@ -83,6 +86,7 @@ const BfsFullCalendar = React.forwardRef(
     return (
       <div className={`bfs-fullcalendar-wrapper ${className}`} style={style}>
         <FullCalendar
+          {...props}
           ref={ref}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           dayHeaderContent={dayHeaderContent}
@@ -111,22 +115,10 @@ const BfsFullCalendar = React.forwardRef(
             year: 'numeric',
             month: 'long',
           }}
-          {...props}
         />
       </div>
     );
   },
 );
-
-BfsFullCalendar.defaultProps = {
-  initialView: 'timeGridWeek',
-  slotMinTime: '00:00:00',
-  slotMaxTime: '24:00:00',
-  slotDuration: '00:15:00',
-  slotLabelInterval: '01:00:00',
-  allDaySlot: true,
-  selectable: true,
-  select: undefined,
-};
 
 export default BfsFullCalendar;
