@@ -95,6 +95,12 @@
     .fc {
         flex: 0 1 80%;
 
+        .fc-toolbar {
+            &.fc-header-toolbar {
+                margin-bottom: 0;
+            }
+        }
+
         .fc-toolbar-chunk {
             display: flex;
             align-items: center;
