@@ -4,11 +4,15 @@ import PropTypes from 'prop-types';
 import './index.scss';
 
 const BfsComment = ({
+  style,
+  className,
   commentBy,
   updatedDate,
   summary,
   ...props
 }: {
+  style?: React.CSSProperties;
+  className?: string;
   commentBy: string;
   updatedDate: string;
   summary: string;

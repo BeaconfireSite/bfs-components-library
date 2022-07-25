@@ -3,16 +3,18 @@ import PropTypes from 'prop-types';
 import './index.scss';
 
 const BfsButton = ({
+  style,
+  className,
   variant,
   size,
-  className,
   disabled,
   children,
   ...props
 }: {
+  style?: React.CSSProperties;
+  className?: string;
   variant?: 'primary' | 'warning' | 'danger' | 'subtle' | 'link';
   size?: 'small' | 'medium';
-  className?: string;
   disabled?: boolean;
   children: ReactNode;
 }) => {

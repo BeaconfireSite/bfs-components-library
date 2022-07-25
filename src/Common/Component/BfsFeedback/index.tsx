@@ -7,6 +7,8 @@ import { BfsComment } from 'bfs-components-library';
 import './index.scss';
 
 const BfsFeedback = ({
+  style,
+  className,
   title,
   commentBy,
   updatedDate,
@@ -16,6 +18,8 @@ const BfsFeedback = ({
   coding,
   ...props
 }: {
+  style?: React.CSSProperties;
+  className?: string;
   title: string;
   commentBy: string;
   updatedDate: string;

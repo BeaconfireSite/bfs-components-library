@@ -5,10 +5,14 @@ import { Table } from 'antd';
 import './index.scss';
 
 const BfsTable = ({
+  style,
+  className,
   columns,
   data,
   ...props
 }: {
+  style?: React.CSSProperties;
+  className?: string;
   columns: any[];
   data: any[];
 }) => {

@@ -4,10 +4,14 @@ import moment from 'moment';
 import './index.scss';
 
 const BfsCalendar = ({
+  style,
+  className,
   hours = 9,
   renderContent,
   ...props
 }: {
+  style?: React.CSSProperties;
+  className?: string;
   hours: number;
   renderContent: (startDate: moment.Moment, hour: number) => React.ReactNode;
 }) => {

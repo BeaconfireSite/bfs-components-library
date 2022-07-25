@@ -6,7 +6,14 @@ import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import './index.scss';
 
-const BfsSwitch = ({ ...props }) => {
+const BfsSwitch = ({
+  style,
+  className,
+  ...props
+}: {
+  style?: React.CSSProperties;
+  className?: string;
+}) => {
   return <Switch className="bfs-switch" {...props} />;
 };
 

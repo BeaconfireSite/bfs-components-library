@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 import './index.scss';
 
 const BfsStatusChip = ({
+  style,
+  className,
   status,
   highlight,
   disabled,
   children,
   ...props
 }: {
+  style?: React.CSSProperties;
+  className?: string;
   status: 'default' | 'available' | 'reserved';
   highlight: boolean;
   disabled: boolean;

@@ -6,10 +6,14 @@ import 'antd/dist/antd.css';
 import './index.scss';
 
 const BfsRadio = ({
+  style,
+  className,
   title,
   direction,
   ...props
 }: {
+  style?: React.CSSProperties;
+  className?: string;
   title: string;
   direction: 'horizontal' | 'vertical';
 }) => {
