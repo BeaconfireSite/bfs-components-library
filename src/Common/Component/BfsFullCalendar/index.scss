@@ -1,6 +1,7 @@
 .bfs-fullcalendar-wrapper {
 
     .fc {
+        line-height: 12px !important;
         height: 100%;
         max-height: 100%;
 
@@ -68,6 +69,10 @@
         
         .fc-timegrid-axis {
             border: none !important;
+        }
+
+        .fc-timegrid-slot {
+            height: 12px;
         }
         
         .fc-timegrid-slot-minor {
