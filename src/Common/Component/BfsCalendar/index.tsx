@@ -46,7 +46,7 @@ const BfsCalendar = ({
           </div>
         </div>
       </div>
-      <table>
+      <table className="bfs-calendar-body">
         <thead>
           <tr>
             {[...Array(5).keys()].map((day: number) => (
