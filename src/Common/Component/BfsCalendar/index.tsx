@@ -13,7 +13,7 @@ const BfsCalendar = ({
   style?: React.CSSProperties;
   className?: string;
   hours: number;
-  renderContent: (startDate: moment.Moment, hour: number) => React.ReactNode;
+  renderContent: (startDate: moment.Moment) => React.ReactNode;
 }) => {
   const [startDate, setStartDate] = useState(moment().startOf('week'));
 
@@ -65,11 +65,7 @@ const BfsCalendar = ({
             ))}
           </tr>
         </thead>
-        <tbody>
-          {[...Array(hours).keys()].map((hour: number) => (
-            <tr key={hour}>{renderContent(startDate, hour)}</tr>
-          ))}
-        </tbody>
+        <tbody>{renderContent(startDate)}</tbody>
       </table>
     </div>
   );

@@ -16,15 +16,19 @@ const convertTime = (hour: number) => {
   }
 };
 
-const renderContent = (startDate, hour) => {
+const renderContent = startDate => {
   return (
     <>
-      {[...Array(5).keys()].map((day: number) => (
-        <td key={day}>
-          <BfsStatusChip status="available" style={{ margin: '4px 0px' }}>
-            {convertTime(hour + 9)}
-          </BfsStatusChip>
-        </td>
+      {[...Array(hours).keys()].map((hour: number) => (
+        <tr key={hour}>
+          {[...Array(5).keys()].map((day: number) => (
+            <td key={day}>
+              <BfsStatusChip status="available" style={{ margin: '4px 0px' }}>
+                {convertTime(hour + 9)}
+              </BfsStatusChip>
+            </td>
+          ))}
+        </tr>
       ))}
     </>
   );
