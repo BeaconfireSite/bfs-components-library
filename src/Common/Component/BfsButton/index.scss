@@ -7,7 +7,7 @@
 }
 
 .bfs-button--primary {
-    border: none;
+    border: 1px solid #28A0CE;
     color: white;
     background-color: #28A0CE;
 }
@@ -21,7 +21,7 @@
 }
 
 .bfs-button--warning {
-    border: none;
+    border: 1px solid #FFB121;
     color: white;
     background-color: #FFB121;
 }
@@ -35,7 +35,7 @@
 }
 
 .bfs-button--danger {
-    border: none;
+    border: 1px solid #F67C6B;
     color: white;
     background-color: #F67C6B;
 }
@@ -81,7 +81,7 @@
 
 .bfs-button--disabled {
     cursor: default;
-    border: none;
+    border: 1px solid #E0E0E0;
     color: white;
     background-color: #E0E0E0;
 }
