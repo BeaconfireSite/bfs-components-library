@@ -26,7 +26,7 @@ const BfsCalendar = ({
   };
 
   return (
-    <>
+    <div className={`bfs-calendar-wrapper ${className}`} style={style}>
       <div className="bfs-calendar-header">
         <div className="bfs-calendar-header-month">
           {startDate.format('MMMM YYYY')}
@@ -71,7 +71,7 @@ const BfsCalendar = ({
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 
