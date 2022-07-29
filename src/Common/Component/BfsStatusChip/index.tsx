@@ -22,13 +22,15 @@ const BfsStatusChip = ({
 
   return (
     <button
+      {...props}
       type="button"
       className={[
         'bfs-status-chip',
         chipStatus,
         highlight ? 'bfs-status-chip--highlight' : '',
+        className,
       ].join(' ')}
-      {...props}
+      style={style}
     >
       {children}
     </button>
