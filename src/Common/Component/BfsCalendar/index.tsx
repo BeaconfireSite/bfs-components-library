@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// @ts-ignore
 import { BfsStatusChip } from 'bfs-components-library';
 import {
   LeftOutlined,
@@ -34,7 +35,7 @@ const defaultRenderContent = (startDate: moment.Moment) => {
         <tr key={hour}>
           {[...Array(5).keys()].map((day: number) => (
             <td key={day}>
-              <BfsStatusChip status="available" style={{ margin: '4px 0px' }}>
+              <BfsStatusChip status="available">
                 {convertTime(hour + 9)}
               </BfsStatusChip>
             </td>
