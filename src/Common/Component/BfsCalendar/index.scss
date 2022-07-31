@@ -17,12 +17,16 @@
             display: flex;
             justify-content: space-between;
     
-            .bfs-calendar-header-action-prev {
+            .bfs-calendar-header-action-prev, .bfs-calendar-header-action-next {
                 cursor: pointer;
             }
     
-            .bfs-calendar-header-action-next {
-                cursor: pointer;
+            .bfs-calendar-header-action-prev:hover, .bfs-calendar-header-action-next:hover{
+                color: #999999;
+            }
+
+            .bfs-calendar-header-action-prev:active, .bfs-calendar-header-action-next:active{
+                color: #333333;
             }
         }
     }
@@ -30,21 +34,41 @@
     .bfs-calendar-body {
         width: 100%;
     }
-    
-    .bfs-calendar-weekday {
-        font-size: 12px;
-        font-weight: 400;
-        color: #4A585F;
-    }
-    
-    .bfs-calendar-date {
-        font-size: 20px;
-        font-weight: 400;
-        color: #0E1E25;
-    }
-    
+
     .bfs-calendar-table-header {
+        cursor: pointer;
         width: 150px;
+
+        .bfs-calendar-table-header-content {
+            display: block;
+
+            .bfs-calendar-weekday {
+                font-size: 12px;
+                font-weight: 400;
+                color: #4A585F;
+            }
+        
+            .bfs-calendar-header-date-wrapper {
+                display: flex;
+                align-items: center;
+        
+                .bfs-calendar-date {
+                    font-size: 20px;
+                    font-weight: 400;
+                    color: #0E1E25;
+                }
+        
+                .bfs-calendar-selection-mark {
+                    font-size: 24px;
+                    padding-left: 16px;
+                    color: #28A0CE;
+                }
+            }
+        }
+    }
+
+    .bfs-calendar-table-header-content {
+        display: flex;
     }
     
     .bfs-calendar-table-cell {

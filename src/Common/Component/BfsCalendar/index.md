@@ -19,7 +19,7 @@ const convertTime = (hour: number) => {
 const renderContent = startDate => {
   return (
     <>
-      {[...Array(hours).keys()].map((hour: number) => (
+      {[...Array(9).keys()].map((hour: number) => (
         <tr key={hour}>
           {[...Array(5).keys()].map((day: number) => (
             <td key={day}>
