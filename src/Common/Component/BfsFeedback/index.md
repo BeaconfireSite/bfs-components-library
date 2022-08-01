@@ -8,6 +8,7 @@ import { BfsFeedback } from 'bfs-components-library';
 
 export default () => {
   const args = {
+    borderd: true,
     title: '1st Round Inteview -  Java Full Stack Application',
     commentBy: 'Anna',
     updatedDate: 'Dec 25, 2021, 5:00:00 AM',

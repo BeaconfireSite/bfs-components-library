@@ -1,35 +1,51 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { MoreOutlined } from '@ant-design/icons';
 // @ts-ignore
 import { BfsComment } from 'bfs-components-library';
 
 import './index.scss';
 
+interface Props {
+  style?: React.CSSProperties;
+  className?: string;
+  bordered?: boolean;
+  title?: string;
+  commentBy?: string;
+  updatedDate?: string;
+  summary?: string;
+  communication?: string;
+  shortanswer?: string;
+  coding?: string;
+}
+
 const BfsFeedback = ({
-  style,
-  className,
-  title,
-  commentBy,
-  updatedDate,
-  summary,
+  style = {},
+  className = '',
+  bordered = false,
+  title = 'Title',
+  commentBy = 'Author',
+  updatedDate = '2020-01-01',
+  summary = 'This is summary',
   communication,
   shortanswer,
   coding,
-  ...props
-}: {
-  style?: React.CSSProperties;
-  className?: string;
-  title: string;
-  commentBy: string;
-  updatedDate: string;
-  summary: string;
-  communication: string;
-  shortanswer: string;
-  coding: string;
-}) => {
+}: Props) => {
+  console.log(bordered, title);
+
   return (
-    <div className="bfs-feedback" {...props}>
+    <div
+      className={`${className} bfs-feedback`}
+      style={
+        bordered
+          ? {
+              border: '1px solid #E0E0E0',
+              borderRadius: '3px',
+              padding: '24px 32px',
+              ...style,
+            }
+          : { ...style }
+      }
+    >
       <div className="bfs-feedback-wrapper">
         <div className="bfs-feedback-header">
           <div className="bfs-feedback-header-title">{title}</div>
@@ -58,17 +74,5 @@ const BfsFeedback = ({
     </div>
   );
 };
-
-BfsFeedback.propTypes = {
-  title: PropTypes.string,
-  commentBy: PropTypes.string,
-  updatedDate: PropTypes.string,
-  summary: PropTypes.string,
-  communication: PropTypes.string,
-  shortanswer: PropTypes.string,
-  coding: PropTypes.string,
-};
-
-BfsFeedback.defaultProps = {};
 
 export default BfsFeedback;
