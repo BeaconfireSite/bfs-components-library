@@ -23,9 +23,7 @@ const BfsTable = ({
       pagination={{
         position: ['bottomCenter'],
       }}
-      onChange={(pagination, filters, sorter) => {
-        console.log('params', pagination, filters, sorter);
-      }}
+      onChange={(pagination, filters, sorter) => {}}
       {...props}
     />
   );

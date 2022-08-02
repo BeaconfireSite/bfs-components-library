@@ -30,8 +30,6 @@ const BfsFeedback = ({
   shortanswer,
   coding,
 }: Props) => {
-  console.log(bordered, title);
-
   return (
     <div
       className={`${className} bfs-feedback`}

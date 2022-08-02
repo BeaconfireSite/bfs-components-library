@@ -1,54 +1,41 @@
 import React, { ReactNode } from 'react';
-import PropTypes from 'prop-types';
 import './index.scss';
 
-const BfsButton = ({
-  style,
-  className,
-  variant,
-  size,
-  disabled,
-  children,
-  ...props
-}: {
+interface Props {
   style?: React.CSSProperties;
   className?: string;
   variant?: 'primary' | 'warning' | 'danger' | 'subtle' | 'link';
   size?: 'small' | 'medium';
   disabled?: boolean;
   children: ReactNode;
-}) => {
+}
+
+const BfsButton = ({
+  style = {},
+  className = '',
+  variant = 'primary',
+  size = 'medium',
+  disabled = false,
+  children,
+  ...props
+}: Props) => {
   const buttonVariant = `bfs-button--${disabled ? 'disabled' : variant}`;
 
   return (
     <button
-      type="button"
-      className={
-        ['bfs-button', `bfs-button--${size}`, buttonVariant].join(' ') +
-        (className ? ` ${className}` : '')
-      }
       {...props}
+      type="button"
+      style={style}
+      className={[
+        'bfs-button',
+        `bfs-button--${size}`,
+        buttonVariant,
+        className,
+      ].join(' ')}
     >
       {children}
     </button>
   );
-};
-
-BfsButton.propTypes = {
-  variant: PropTypes.oneOf(['primary', 'warning', 'danger', 'subtle', 'link']),
-  size: PropTypes.oneOf(['small', 'medium']),
-  children: PropTypes.oneOfType([
-    PropTypes.element.isRequired,
-    PropTypes.string.isRequired,
-  ]),
-  onClick: PropTypes.func,
-};
-
-BfsButton.defaultProps = {
-  variant: 'primary',
-  size: 'medium',
-  disabled: false,
-  onClick: undefined,
 };
 
 export default BfsButton;
