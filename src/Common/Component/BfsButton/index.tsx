@@ -8,6 +8,7 @@ interface Props {
   size?: 'small' | 'medium';
   disabled?: boolean;
   children: ReactNode;
+  [key: string]: any;
 }
 
 const BfsButton = ({
