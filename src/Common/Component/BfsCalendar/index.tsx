@@ -56,7 +56,7 @@ const BfsCalendar = ({
   onStartOfWeekChanged,
 }: Props) => {
   const [startDate, setStartDate] = useState<moment.Moment>(
-    moment().startOf('week'),
+    moment().startOf('isoWeek'),
   );
   const [date, setDate] = useState<string | null>(null);
 
