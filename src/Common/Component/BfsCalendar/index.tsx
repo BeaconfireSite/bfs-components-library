@@ -16,6 +16,7 @@ interface Props {
   dateSelectable?: boolean;
   renderContent?: (date: moment.Moment) => React.ReactNode;
   onDateClicked?: (date: string | null) => void;
+  onStartOfWeekChanged?: (startOfWeek: moment.Moment) => void;
 }
 
 const convertTime = (hour: number) => {
@@ -47,26 +48,34 @@ const defaultRenderContent = (startDate: moment.Moment) => {
 };
 
 const BfsCalendar = ({
-  style,
-  className,
+  style = {},
+  className = '',
   dateSelectable = true,
   renderContent = defaultRenderContent,
   onDateClicked,
+  onStartOfWeekChanged,
 }: Props) => {
-  const [startDate, setStartDate] = useState(moment().startOf('week'));
+  const [startDate, setStartDate] = useState<moment.Moment>(
+    moment().startOf('week'),
+  );
   const [date, setDate] = useState<string | null>(null);
 
   const handlePrevWeek = () => {
-    setStartDate(moment(startDate.subtract(1, 'd').startOf('week')));
+    const newStartOfWeek = startDate.clone().subtract(7, 'd');
+    setStartDate(newStartOfWeek);
+    onStartOfWeekChanged && onStartOfWeekChanged(newStartOfWeek);
   };
 
   const handleNextWeek = () => {
-    setStartDate(moment(startDate.endOf('week').add(1, 'd')));
+    const newStartOfWeek = startDate.clone().add(7, 'd');
+    setStartDate(newStartOfWeek);
+    onStartOfWeekChanged && onStartOfWeekChanged(newStartOfWeek);
   };
 
   const handleDateClicked = (day: number) => {
     if (dateSelectable) {
-      const dateStr = moment(startDate)
+      const dateStr = startDate
+        .clone()
         .add(day, 'd')
         .format('YYYY-MM-DD');
       const newDateStr = date === dateStr ? null : dateStr;
@@ -106,18 +115,21 @@ const BfsCalendar = ({
                   onClick={() => handleDateClicked(day)}
                 >
                   <div className="bfs-calendar-weekday">
-                    {moment(startDate)
+                    {startDate
+                      .clone()
                       .add(day, 'd')
                       .format('ddd')}
                   </div>
                   <div className="bfs-calendar-header-date-wrapper">
                     <div className="bfs-calendar-date">
-                      {moment(startDate)
+                      {startDate
+                        .clone()
                         .add(day, 'd')
                         .date()}
                     </div>
                     {date ===
-                      moment(startDate)
+                      startDate
+                        .clone()
                         .add(day, 'd')
                         .format('YYYY-MM-DD') && (
                       <div>

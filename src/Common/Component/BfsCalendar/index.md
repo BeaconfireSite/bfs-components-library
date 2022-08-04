@@ -4,6 +4,7 @@ Demo:
 
 ```tsx
 import React, { useState } from 'react';
+import moment from 'moment';
 import { BfsCalendar, BfsStatusChip } from 'bfs-components-library';
 
 const convertTime = (hour: number) => {
@@ -34,7 +35,16 @@ const renderContent = startDate => {
   );
 };
 
+const handleStartOfWeekChanged = (startOfWeek: moment.Moment) => {
+  console.log(`Start of week changed to ${startOfWeek}`);
+};
+
 export default () => {
-  return <BfsCalendar renderContent={renderContent} />;
+  return (
+    <BfsCalendar
+      renderContent={renderContent}
+      onStartOfWeekChanged={handleStartOfWeekChanged}
+    />
+  );
 };
 ```
