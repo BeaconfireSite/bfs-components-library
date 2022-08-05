@@ -11,6 +11,7 @@ export default () => {
     <BfsFullCalendarControl
       style={{ display: 'flex' }}
       showTitle={false}
+      calendarTypes={['Phone Screening', 'Technical', 'Manager Round']}
       onCalendarsSelect={calendars => {
         console.log(calendars);
       }}

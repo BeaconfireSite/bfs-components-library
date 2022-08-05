@@ -8,6 +8,7 @@ interface Props {
   style?: React.CSSProperties;
   className?: string;
   showTitle?: boolean;
+  calendarTypes?: string[];
   defaultSelection?: any;
   onCalendarsSelect: (selectedCalendars: any) => void;
 }
@@ -16,11 +17,11 @@ const BfsFullCalendarControl = ({
   style = {},
   className = '',
   showTitle = true,
-  defaultSelection = {
-    'Phone Screening': true,
-    Technical: true,
-    'Manager Round': true,
-  },
+  calendarTypes = [],
+  defaultSelection = calendarTypes.reduce(
+    (x, key) => ({ ...x, [key]: true }),
+    {},
+  ),
   onCalendarsSelect,
 }: Props) => {
   const [calendarSelection, setCalendarSelection] = useState(defaultSelection);
@@ -46,29 +47,16 @@ const BfsFullCalendarControl = ({
       {showTitle && (
         <div className="bfs-calendar-selector-label">Calendars</div>
       )}
-      <Checkbox
-        className="bfs-calendar-selector bfs-calendar-selector-phone"
-        defaultChecked={calendarSelection['Phone Screening']}
-        onChange={e => onChange(e, 'Phone Screening')}
-      >
-        <div className="bfs-calendar-selector-item-label">Phone Screening</div>
-      </Checkbox>
-      <br />
-      <Checkbox
-        className="bfs-calendar-selector bfs-calendar-selector-technical"
-        defaultChecked={calendarSelection['Technical']}
-        onChange={e => onChange(e, 'Technical')}
-      >
-        <div className="bfs-calendar-selector-item-label">Technical Round</div>
-      </Checkbox>
-      <br />
-      <Checkbox
-        className="bfs-calendar-selector bfs-calendar-selector-manager"
-        defaultChecked={calendarSelection['Manager Round']}
-        onChange={e => onChange(e, 'Manager Round')}
-      >
-        <div className="bfs-calendar-selector-item-label">Manager Round</div>
-      </Checkbox>
+      {calendarTypes.map((calendarType: string) => (
+        <Checkbox
+          key={calendarType}
+          className="bfs-calendar-selector"
+          defaultChecked={calendarSelection[calendarType]}
+          onChange={e => onChange(e, calendarType)}
+        >
+          <div className="bfs-calendar-selector-item-label">{calendarType}</div>
+        </Checkbox>
+      ))}
     </div>
   );
 };
