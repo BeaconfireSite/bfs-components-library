@@ -8,3 +8,4 @@ export { default as BfsFeedback } from './Common/Component/BfsFeedback';
 export { default as BfsComment } from './Common/Component/BfsComment';
 export { default as BfsCalendar } from './Common/Component/BfsCalendar';
 export { default as BfsFullCalendarControl } from './Common/Component/BfsFullCalendarControl';
+export { default as BfsMessage } from './Common/Component/BfsMessage';
