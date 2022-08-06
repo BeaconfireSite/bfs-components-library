@@ -109,7 +109,12 @@ const BfsCalendar = ({
         <thead>
           <tr>
             {[...Array(5).keys()].map((day: number) => (
-              <th className="bfs-calendar-table-header" key={day} align="left">
+              <th
+                className="bfs-calendar-table-header"
+                style={{ cursor: dateSelectable ? 'pointer' : 'default' }}
+                key={day}
+                align="left"
+              >
                 <div
                   className="bfs-calendar-table-header-content"
                   onClick={() => handleDateClicked(day)}
