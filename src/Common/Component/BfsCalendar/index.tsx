@@ -14,6 +14,7 @@ interface Props {
   style?: React.CSSProperties;
   className?: string;
   dateSelectable?: boolean;
+  startOfWeek?: moment.Moment;
   renderContent?: (date: moment.Moment) => React.ReactNode;
   onDateClicked?: (date: string | null) => void;
   onStartOfWeekChanged?: (startOfWeek: moment.Moment) => void;
@@ -51,13 +52,12 @@ const BfsCalendar = ({
   style = {},
   className = '',
   dateSelectable = true,
+  startOfWeek = moment().startOf('isoWeek'),
   renderContent = defaultRenderContent,
   onDateClicked,
   onStartOfWeekChanged,
 }: Props) => {
-  const [startDate, setStartDate] = useState<moment.Moment>(
-    moment().startOf('isoWeek'),
-  );
+  const [startDate, setStartDate] = useState<moment.Moment>(startOfWeek);
   const [date, setDate] = useState<string | null>(null);
 
   const handlePrevWeek = () => {
