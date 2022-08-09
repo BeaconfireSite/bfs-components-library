@@ -2,38 +2,46 @@ import React from 'react';
 import { MoreOutlined } from '@ant-design/icons';
 // @ts-ignore
 import { BfsComment } from 'bfs-components-library';
+import moment from 'moment';
 
 import './index.scss';
+
+interface FeedbackProps {
+  raterId: string;
+  raterName: string;
+  feedbackDateTime: string;
+  overallComment: string;
+  overallScore: number;
+  interviewResult: string;
+  subitems: {
+    subject: string;
+    comment: string;
+    score: number;
+  }[];
+}
 
 interface Props {
   style?: React.CSSProperties;
   className?: string;
   bordered?: boolean;
   title?: string;
-  commentBy?: string;
-  updatedDate?: string;
-  summary?: string;
-  details?: {
-    name: string;
-    value: string;
-    score?: number;
-  }[];
+  feedback: FeedbackProps;
 }
 
 const BfsFeedback = ({
   style = {},
   className = '',
   bordered = false,
-  title = '--',
-  commentBy = '--',
-  updatedDate = '--',
-  summary = '--',
-  details = [
-    {
-      name: '--',
-      value: '--',
-    },
-  ],
+  title,
+  feedback = {
+    raterId: '',
+    raterName: '',
+    feedbackDateTime: '',
+    overallComment: '',
+    overallScore: 0,
+    interviewResult: '',
+    subitems: [],
+  },
 }: Props) => {
   return (
     <div
@@ -55,24 +63,24 @@ const BfsFeedback = ({
           <MoreOutlined className="bfs-feedback-header-icon" />
         </div>
         <BfsComment
-          commentBy={commentBy}
-          updatedDate={updatedDate}
-          summary={summary}
+          commentBy={feedback.raterName}
+          updatedDate={moment(feedback.feedbackDateTime).format('MM Do, YYYY')}
+          summary={feedback.overallComment}
         />
         <div className="bfs-feedback-sections">
-          {details.map(
+          {feedback.subitems.map(
             ({
-              name,
-              value,
+              subject,
+              comment,
               score,
             }: {
-              name: string;
-              value: string;
+              subject: string;
+              comment: string;
               score?: number;
             }) => (
-              <div className="bfs-feedback-section" key={name}>
-                <div className="bfs-feedback-section-title">{name}</div>
-                <div className="bfs-feedback-section-body">{value}</div>
+              <div className="bfs-feedback-section" key={subject}>
+                <div className="bfs-feedback-section-title">{subject}</div>
+                <div className="bfs-feedback-section-body">{comment}</div>
                 {score && (
                   <div className="bfs-feedback-section-score">
                     {'Score: '}
