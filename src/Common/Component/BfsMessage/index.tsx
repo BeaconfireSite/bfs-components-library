@@ -1,26 +1,33 @@
-import { message } from 'antd';
 import React from 'react';
-import Message, { BfsMessageType, MessageProps } from './Message';
-
+import { message } from 'antd';
+import { v4 as uuidv4 } from 'uuid';
+import Message, { BfsMessageType } from './Message';
+interface MessageArgs {
+  type: BfsMessageType;
+  title?: string;
+  content: string;
+  actionLink?: string;
+  actionTitle?: string;
+}
 // duration in seconds
-const openMessage = (messageProps: MessageProps, duration: number = 0) => {
+const openMessage = (messageProps: MessageArgs, duration: number = 0) => {
+  const key = uuidv4();
   message.open({
     content: (
       <Message
-        type={messageProps.type}
-        title={messageProps.title}
-        content={messageProps.content}
-        actionLink={messageProps.actionLink}
-        actionTitle={messageProps.actionTitle}
-        message={message}
+        {...messageProps}
+        handleDismiss={() => {
+          message.destroy(key);
+        }}
       />
     ),
     duration,
+    key,
   });
 };
 
 const BfsMessage: {
-  open: (messageProps: MessageProps, duration: number) => void;
+  open: (messageProps: MessageArgs, duration?: number) => void;
   INFO: BfsMessageType;
   SUCCESS: BfsMessageType;
   WARNING: BfsMessageType;
