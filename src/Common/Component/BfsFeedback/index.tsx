@@ -13,22 +13,27 @@ interface Props {
   commentBy?: string;
   updatedDate?: string;
   summary?: string;
-  communication?: string;
-  shortanswer?: string;
-  coding?: string;
+  details?: {
+    name: string;
+    value: string;
+    score?: number;
+  }[];
 }
 
 const BfsFeedback = ({
   style = {},
   className = '',
   bordered = false,
-  title = 'Title',
-  commentBy = 'Author',
-  updatedDate = '2020-01-01',
-  summary = 'This is summary',
-  communication,
-  shortanswer,
-  coding,
+  title = '--',
+  commentBy = '--',
+  updatedDate = '--',
+  summary = '--',
+  details = [
+    {
+      name: '--',
+      value: '--',
+    },
+  ],
 }: Props) => {
   return (
     <div
@@ -55,18 +60,28 @@ const BfsFeedback = ({
           summary={summary}
         />
         <div className="bfs-feedback-sections">
-          <div className="bfs-feedback-section bfs-feedback-communication">
-            <div className="bfs-feedback-section-title">Communication</div>
-            <div className="bfs-feedback-section-body">{communication}</div>
-          </div>
-          <div className="bfs-feedback-section bfs-feedback-short">
-            <div className="bfs-feedback-section-title">Short Answer</div>
-            <div className="bfs-feedback-section-body">{shortanswer}</div>
-          </div>
-          <div className="bfs-feedback-section bfs-feedback-coding">
-            <div className="bfs-feedback-section-title">Coding</div>
-            <div className="bfs-feedback-section-body">{coding}</div>
-          </div>
+          {details.map(
+            ({
+              name,
+              value,
+              score,
+            }: {
+              name: string;
+              value: string;
+              score?: number;
+            }) => (
+              <div className="bfs-feedback-section" key={name}>
+                <div className="bfs-feedback-section-title">{name}</div>
+                <div className="bfs-feedback-section-body">{value}</div>
+                {score && (
+                  <div className="bfs-feedback-section-score">
+                    {'Score: '}
+                    <span>{score}</span>
+                  </div>
+                )}
+              </div>
+            ),
+          )}
         </div>
       </div>
     </div>

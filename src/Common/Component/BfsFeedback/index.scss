@@ -62,6 +62,15 @@
                 .bfs-feedback-section-body {
                     font-weight: 300;
                 }
+
+                .bfs-feedback-section-score {
+                    font-weight: 300;
+                    
+                    span {
+                        font-weight: 600;
+                        color: #2875d0;
+                    }
+                }
             }
         }
     }
