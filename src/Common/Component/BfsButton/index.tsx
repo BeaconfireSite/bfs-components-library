@@ -24,7 +24,6 @@ const BfsButton = ({
 
   return (
     <button
-      {...props}
       type="button"
       style={style}
       className={[
@@ -33,6 +32,7 @@ const BfsButton = ({
         buttonVariant,
         className,
       ].join(' ')}
+      {...props}
     >
       {children}
     </button>
