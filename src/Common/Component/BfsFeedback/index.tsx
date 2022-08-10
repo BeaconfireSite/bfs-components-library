@@ -7,13 +7,13 @@ import moment from 'moment';
 import './index.scss';
 
 interface FeedbackProps {
-  raterId: string;
-  raterName: string;
-  feedbackDateTime: string;
-  overallComment: string;
-  overallScore: number;
-  interviewResult: string;
-  subitems: {
+  raterId?: string;
+  raterName?: string;
+  feedbackDateTime?: string;
+  overallComment?: string;
+  overallScore?: number;
+  interviewResult?: string;
+  subitems?: {
     subject: string;
     comment: string;
     score: number;
@@ -33,15 +33,7 @@ const BfsFeedback = ({
   className = '',
   bordered = false,
   title,
-  feedback = {
-    raterId: '',
-    raterName: '',
-    feedbackDateTime: '',
-    overallComment: '',
-    overallScore: 0,
-    interviewResult: '',
-    subitems: [],
-  },
+  feedback,
 }: Props) => {
   return (
     <div
@@ -63,34 +55,40 @@ const BfsFeedback = ({
           <MoreOutlined className="bfs-feedback-header-icon" />
         </div>
         <BfsComment
-          commentBy={feedback.raterName}
-          updatedDate={moment(feedback.feedbackDateTime).format('MM Do, YYYY')}
-          summary={feedback.overallComment}
+          commentBy={feedback.raterName ?? '--'}
+          updatedDate={
+            feedback.feedbackDateTime
+              ? moment(feedback.feedbackDateTime).format('MMM Do, YYYY')
+              : '--'
+          }
+          summary={feedback.overallComment ?? ''}
         />
-        <div className="bfs-feedback-sections">
-          {feedback.subitems.map(
-            ({
-              subject,
-              comment,
-              score,
-            }: {
-              subject: string;
-              comment: string;
-              score?: number;
-            }) => (
-              <div className="bfs-feedback-section" key={subject}>
-                <div className="bfs-feedback-section-title">{subject}</div>
-                <div className="bfs-feedback-section-body">{comment}</div>
-                {score && (
-                  <div className="bfs-feedback-section-score">
-                    {'Score: '}
-                    <span>{score}</span>
-                  </div>
-                )}
-              </div>
-            ),
-          )}
-        </div>
+        {feedback.subitems && feedback.subitems.length > 0 && (
+          <div className="bfs-feedback-sections">
+            {feedback.subitems.map(
+              ({
+                subject,
+                comment,
+                score,
+              }: {
+                subject: string;
+                comment: string;
+                score?: number;
+              }) => (
+                <div className="bfs-feedback-section" key={subject}>
+                  <div className="bfs-feedback-section-title">{subject}</div>
+                  <div className="bfs-feedback-section-body">{comment}</div>
+                  {score && (
+                    <div className="bfs-feedback-section-score">
+                      {'Score: '}
+                      <span>{score}</span>
+                    </div>
+                  )}
+                </div>
+              ),
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
