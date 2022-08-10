@@ -21,28 +21,27 @@ const Message = ({
   let iconPath: string = '',
     bgColor: string = '';
 
+  console.log(require('./images/error_icon.svg'));
   switch (type) {
     case 'info':
-      iconPath = '/images/info_icon.svg';
+      iconPath = require('./images/info_icon.svg');
       bgColor = '#dff1f8';
       break;
     case 'success':
-      iconPath = '/images/success_icon.svg';
+      iconPath = require('./images/success_icon.svg');
       bgColor = '#eef8df';
       break;
     case 'warning':
-      iconPath = '/images/warning_icon.svg';
+      iconPath = require('./images/warning_icon.svg');
       bgColor = '#fff9e8';
       break;
     case 'error':
-      iconPath = '/images/error_icon.svg';
+      iconPath = require('./images/error_icon.svg');
       bgColor = '#fff2f1';
       break;
     default:
       break;
   }
-
-  // tailwind won't generate the CSS class for conditionals
 
   return (
     <div
