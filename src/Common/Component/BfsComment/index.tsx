@@ -20,7 +20,9 @@ const BfsComment = ({
   return (
     <div className="bfs-comment" {...props}>
       <div className="bfs-comment-info">
-        <div className="bfs-comment-info-author">by {commentBy}</div>
+        <div className="bfs-comment-info-author">
+          Overall comment by {commentBy}
+        </div>
         <div className="bfs-comment-info-date">{updatedDate}</div>
       </div>
       <div className="bfs-comment-summary">{summary}</div>
