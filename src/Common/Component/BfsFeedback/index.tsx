@@ -25,6 +25,7 @@ interface Props {
   className?: string;
   bordered?: boolean;
   title?: string;
+  showTitle?: boolean;
   feedback?: FeedbackProps;
 }
 
@@ -33,6 +34,7 @@ const BfsFeedback = ({
   className = '',
   bordered = false,
   title,
+  showTitle = true,
   feedback,
 }: Props) => {
   return (
@@ -50,10 +52,12 @@ const BfsFeedback = ({
       }
     >
       <div className="bfs-feedback-wrapper">
-        <div className="bfs-feedback-header">
-          <div className="bfs-feedback-header-title">{title}</div>
-          <MoreOutlined className="bfs-feedback-header-icon" />
-        </div>
+        {showTitle && (
+          <div className="bfs-feedback-header">
+            <div className="bfs-feedback-header-title">{title}</div>
+            <MoreOutlined className="bfs-feedback-header-icon" />
+          </div>
+        )}
         <BfsComment
           commentBy={feedback?.raterName ?? '--'}
           updatedDate={
