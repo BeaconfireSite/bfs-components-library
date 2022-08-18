@@ -1,3 +1,9 @@
+import {
+  InfoCircleFilled,
+  CheckCircleFilled,
+  WarningFilled,
+  CloseCircleFilled,
+} from '@ant-design/icons';
 import React, { ReactElement } from 'react';
 import './index.scss';
 
@@ -18,24 +24,24 @@ const Message = ({
   actionTitle,
   handleDismiss,
 }: MessageProps): ReactElement => {
-  let iconPath: string = '',
-    bgColor: string = '';
+  let bgColor: string = '';
+  let icon;
 
   switch (type) {
     case 'info':
-      iconPath = '/images/info_icon.svg';
+      icon = <InfoCircleFilled color="dff1f8" className="bfs-message-icon" />;
       bgColor = '#dff1f8';
       break;
     case 'success':
-      iconPath = '/images/success_icon.svg';
+      icon = <CheckCircleFilled color="#eef8df" className="bfs-message-icon" />;
       bgColor = '#eef8df';
       break;
     case 'warning':
-      iconPath = '/images/warning_icon.svg';
+      icon = <WarningFilled color="#fff9e8" className="bfs-message-icon" />;
       bgColor = '#fff9e8';
       break;
     case 'error':
-      iconPath = '/images/error_icon.svg';
+      icon = <CloseCircleFilled color="#fff2f1" className="bfs-message-icon" />;
       bgColor = '#fff2f1';
       break;
     default:
@@ -47,7 +53,7 @@ const Message = ({
       className="bfs-message-wrapper"
       style={{ backgroundColor: bgColor, borderColor: bgColor }}
     >
-      <img src={iconPath} className="bfs-message-icon"></img>
+      {icon}
       <div className="bfs-message-content">
         {!!title && <div className="bfs-message-content-title">{title}</div>}
         <p className="bfs-message-content-text">{content}</p>
