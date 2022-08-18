@@ -29,20 +29,40 @@ const Message = ({
 
   switch (type) {
     case 'info':
-      icon = <InfoCircleFilled color="dff1f8" className="bfs-message-icon" />;
+      icon = (
+        <InfoCircleFilled
+          style={{ color: '#2875D0' }}
+          className="bfs-message-icon"
+        />
+      );
       bgColor = '#dff1f8';
       break;
     case 'success':
-      icon = <CheckCircleFilled color="#eef8df" className="bfs-message-icon" />;
+      icon = (
+        <CheckCircleFilled
+          style={{ color: '#8FCE28' }}
+          className="bfs-message-icon"
+        />
+      );
       bgColor = '#eef8df';
       break;
     case 'warning':
-      icon = <WarningFilled color="#fff9e8" className="bfs-message-icon" />;
-      bgColor = '#fff9e8';
+      icon = (
+        <WarningFilled
+          style={{ color: '#2875D0' }}
+          className="bfs-message-icon"
+        />
+      );
+      bgColor = '#FFB121';
       break;
     case 'error':
-      icon = <CloseCircleFilled color="#fff2f1" className="bfs-message-icon" />;
-      bgColor = '#fff2f1';
+      icon = (
+        <CloseCircleFilled
+          style={{ color: '#2875D0' }}
+          className="bfs-message-icon"
+        />
+      );
+      bgColor = '#FF522C';
       break;
     default:
       break;
