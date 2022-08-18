@@ -49,20 +49,20 @@ const Message = ({
     case 'warning':
       icon = (
         <WarningFilled
-          style={{ color: '#2875D0' }}
+          style={{ color: '#FFB121' }}
           className="bfs-message-icon"
         />
       );
-      bgColor = '#FFB121';
+      bgColor = '#fff9e8';
       break;
     case 'error':
       icon = (
         <CloseCircleFilled
-          style={{ color: '#2875D0' }}
+          style={{ color: '#FF522C' }}
           className="bfs-message-icon"
         />
       );
-      bgColor = '#FF522C';
+      bgColor = '#fff2f1';
       break;
     default:
       break;
