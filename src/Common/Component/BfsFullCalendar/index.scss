@@ -43,14 +43,17 @@
             }
 
             .fc-today-button {
-                margin: 7px 12px 5px;
+                margin: 7px 12px 5px 0px;
                 font-weight: 500;
                 letter-spacing: 0.25px;
             }
         }
 
-        .fc-scrollgrid.fc-scrollgrid-liquid {
-            border: none;
+        .fc-timeGridWeek-view, .fc-timeGridDay-view {
+
+            .fc-scrollgrid.fc-scrollgrid-liquid {
+                border: none;
+            }
         }
         
         .bfs-fullcalendar-allday-label {
@@ -88,24 +91,50 @@
         .fc-day-today {
             background: none !important;
         }
+
+        .fc-timeGridWeek-view, .fc-timeGridDay-view {
+            
+            .fc-col-header-cell.fc-day {
+                border: none;
+            }
+        }
+
+        .fc-dayGridMonth-view {
+            
+            .fc-col-header-cell.fc-day {
+                border-bottom: none;
+            }
+        }
         
         .fc-col-header-cell.fc-day {
-            border: none;
         
             .bfs-fullcalendar-header {
                 margin: 0;
                 text-align: center;
                 width: 100%;
+
+                .bfs-fullcalendar-header-month-view {
+
+                    &.bfs-fullcalendar-header-weekday {
+                        margin-top: 4px;
+                    }
+                }
+
+                .bfs-fullcalendar-header-week-view {
+
+                    &.bfs-fullcalendar-header-weekday {
+                        line-height: 32px;
+                        margin-top: 8px;
+                    }
+                }
             
                 .bfs-fullcalendar-header-weekday {
-                    line-height: 32px;
                     position: relative;
                     z-index: 5;
                     color: #70757a;
                     font-size: 11px;
                     font-weight: 500;
                     letter-spacing: 0.8px;
-                    margin-top: 8px;
                     text-indent: 0.8px;
                     text-transform: uppercase;
                 }

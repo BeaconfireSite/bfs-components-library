@@ -1,5 +1,8 @@
-import React, { LegacyRef } from 'react';
-import FullCalendar, { DateSelectArg } from '@fullcalendar/react';
+import React, { LegacyRef, useState } from 'react';
+import FullCalendar, {
+  CalendarOptions,
+  DatesSetArg,
+} from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -7,52 +10,43 @@ import interactionPlugin from '@fullcalendar/interaction';
 import 'antd/dist/antd.css';
 import './index.scss';
 
-interface Props {
+interface Props extends CalendarOptions {
   style?: React.CSSProperties;
   className?: string;
-  initialView: 'timeGridDay' | 'timeGridWeek' | 'dayGridMonth';
-  slotMinTime: string;
-  slotMaxTime: string;
-  slotDuration: string;
-  slotLabelInterval: string;
-  allDaySlot: boolean;
-  selectable: boolean;
-  select: ((arg: DateSelectArg) => void) | undefined;
-  [x: string]: any;
 }
 
 const BfsFullCalendar = React.forwardRef(
   (
-    {
-      style,
-      className,
-      initialView = 'timeGridWeek',
-      slotMinTime = '08:00',
-      slotMaxTime = '18:00',
-      slotDuration = '00:15',
-      slotLabelInterval = '01:00',
-      allDaySlot = true,
-      selectable = true,
-      select,
-      ...props
-    }: Props,
+    { style = {}, className = '', ...props }: Props,
     ref: LegacyRef<FullCalendar>,
   ) => {
     const dayHeaderContent = (arg: any) => {
       return (
         <div className="bfs-fullcalendar-header">
-          <div className="bfs-fullcalendar-header-weekday">
-            {arg.date.toLocaleDateString('en-US', { weekday: 'short' })}
-          </div>
-          <div
-            className="bfs-fullcalendar-header-date"
-            style={{
-              color: arg.isPast ? '#70757a' : arg.isToday ? 'white' : '#3C4043',
-              backgroundColor: arg.isToday ? '#1A73E8' : 'transparent',
-            }}
-          >
-            {arg.date.getDate()}
-          </div>
+          {arg.view.type === 'timeGridWeek' ? (
+            <>
+              <div className="bfs-fullcalendar-header-week-view bfs-fullcalendar-header-weekday">
+                {arg.date.toLocaleDateString('en-US', { weekday: 'short' })}
+              </div>
+              <div
+                className="bfs-fullcalendar-header-date"
+                style={{
+                  color: arg.isPast
+                    ? '#70757a'
+                    : arg.isToday
+                    ? 'white'
+                    : '#3C4043',
+                  backgroundColor: arg.isToday ? '#1A73E8' : 'transparent',
+                }}
+              >
+                {arg.date.getDate()}
+              </div>
+            </>
+          ) : (
+            <div className="bfs-fullcalendar-header-month-view bfs-fullcalendar-header-weekday">
+              {arg.text}
+            </div>
+          )}
         </div>
       );
     };
@@ -86,20 +80,11 @@ const BfsFullCalendar = React.forwardRef(
     return (
       <div className={`bfs-fullcalendar-wrapper ${className}`} style={style}>
         <FullCalendar
-          {...props}
           ref={ref}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           dayHeaderContent={dayHeaderContent}
-          initialView={initialView}
-          allDaySlot={allDaySlot}
           allDayContent={allDayContent}
-          slotMinTime={slotMinTime}
-          slotMaxTime={slotMaxTime}
-          slotDuration={slotDuration}
-          slotLabelInterval={slotLabelInterval}
           slotLabelContent={slotLabelContent}
-          selectable={selectable}
-          select={select}
           eventMinHeight={5}
           headerToolbar={{
             left: 'today prev,next title',
@@ -115,6 +100,11 @@ const BfsFullCalendar = React.forwardRef(
             year: 'numeric',
             month: 'long',
           }}
+          initialView={props.initialView ?? 'timeGridWeek'}
+          slotDuration={props.slotDuration ?? '00:15'}
+          slotLabelInterval={props.slotLabelInterval ?? '01:00'}
+          allDaySlot={props.allDaySlot ?? true}
+          {...props}
         />
       </div>
     );

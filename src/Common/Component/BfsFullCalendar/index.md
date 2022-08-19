@@ -22,13 +22,10 @@ export default () => {
       <button onClick={handleEventAdded}>add event</button>
       <BfsFullCalendar
         ref={calendarRef}
-        initialView="timeGridWeek"
+        selectable={true}
         select={selectionInfo => {
           console.log(selectionInfo.startStr);
           console.log(selectionInfo.endStr);
-        }}
-        onCalendarsSelect={calendars => {
-          console.log(calendars);
         }}
       />
     </>
