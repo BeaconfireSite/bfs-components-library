@@ -1,8 +1,5 @@
-import React, { LegacyRef, useState } from 'react';
-import FullCalendar, {
-  CalendarOptions,
-  DatesSetArg,
-} from '@fullcalendar/react';
+import React, { LegacyRef } from 'react';
+import FullCalendar, { CalendarOptions } from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -13,6 +10,7 @@ import './index.scss';
 interface Props extends CalendarOptions {
   style?: React.CSSProperties;
   className?: string;
+  [key: string]: any;
 }
 
 const BfsFullCalendar = React.forwardRef(
