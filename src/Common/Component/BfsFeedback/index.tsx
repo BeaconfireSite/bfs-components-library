@@ -1,10 +1,10 @@
 import React from 'react';
 import { MoreOutlined } from '@ant-design/icons';
 // @ts-ignore
-import { BfsComment } from 'bfs-components-library';
 import moment from 'moment';
 
 import './index.scss';
+import BfsComment from '@/Common/Component/BfsComment';
 
 interface FeedbackProps {
   raterId?: string;
