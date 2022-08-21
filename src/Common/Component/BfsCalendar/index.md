@@ -17,7 +17,7 @@ const convertTime = (hour: number) => {
   }
 };
 
-const renderContent = startDate => {
+const renderContent = (startDate) => {
   return (
     <>
       {[...Array(9).keys()].map((hour: number) => (

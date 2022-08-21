@@ -66,10 +66,7 @@ const BfsFullCalendar = React.forwardRef(
       return (
         <div>
           <span className="bfs-fullcalendar-allday-label">
-            {new Date()
-              .toString()
-              .split(' ')[5]
-              .slice(0, 6)}
+            {new Date().toString().split(' ')[5].slice(0, 6)}
           </span>
         </div>
       );

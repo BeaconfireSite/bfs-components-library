@@ -23,7 +23,7 @@ export default () => {
   ]);
   const [value, setValue] = useState('a');
 
-  const onChange = e => {
+  const onChange = (e) => {
     console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };

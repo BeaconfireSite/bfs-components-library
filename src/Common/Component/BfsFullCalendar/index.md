@@ -23,7 +23,7 @@ export default () => {
       <BfsFullCalendar
         ref={calendarRef}
         selectable={true}
-        select={selectionInfo => {
+        select={(selectionInfo) => {
           console.log(selectionInfo.startStr);
           console.log(selectionInfo.endStr);
         }}
