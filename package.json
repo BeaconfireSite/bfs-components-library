@@ -9,9 +9,7 @@
     "build": "father-build",
     "deploy": "npm run docs:build && npm run docs:deploy",
     "release": "npm run build && npm publish",
-    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
-    "test": "umi-test",
-    "test:coverage": "umi-test --coverage"
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\""
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -33,29 +31,26 @@
     ]
   },
   "dependencies": {
-    "@ant-design/icons": "^4.6.0",
+    "@ant-design/icons": "^4.6.2",
     "@fullcalendar/daygrid": "^5.11.0",
     "@fullcalendar/interaction": "^5.11.0",
     "@fullcalendar/react": "^5.11.1",
     "@fullcalendar/timegrid": "^5.11.0",
-    "antd": "^4.21.6",
-    "classnames": "^2.3.1",
+    "antd": "^4.22.6",
     "moment": "^2.29.4",
-    "node-sass": "^7.0.1",
     "prop-types": "^15.8.1",
-    "react": "^16.12.0",
+    "react": "^18.2.0",
     "sass": "^1.53.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/uuid": "^8.3.4",
     "@umijs/plugin-sass": "^1.1.1",
-    "@umijs/test": "^3.0.5",
     "dumi": "^1.1.0",
-    "father-build": "^1.19.1",
+    "father-build": "^1.22.3",
     "gh-pages": "^3.0.0",
     "lint-staged": "^10.0.7",
-    "prettier": "^1.19.1",
+    "prettier": "^2.2.1",
     "yorkie": "^2.0.0"
   }
 }

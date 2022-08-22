@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // @ts-ignore
-import { BfsStatusChip } from 'bfs-components-library';
+
 import {
   LeftOutlined,
   RightOutlined,
@@ -9,6 +9,7 @@ import {
 import moment from 'moment';
 
 import './index.scss';
+import BfsStatusChip from '@/Common/Component/BfsStatusChip';
 
 interface Props {
   style?: React.CSSProperties;
@@ -74,10 +75,7 @@ const BfsCalendar = ({
 
   const handleDateClicked = (day: number) => {
     if (dateSelectable) {
-      const dateStr = startDate
-        .clone()
-        .add(day, 'd')
-        .format('YYYY-MM-DD');
+      const dateStr = startDate.clone().add(day, 'd').format('YYYY-MM-DD');
       const newDateStr = date === dateStr ? null : dateStr;
       setDate(newDateStr);
       onDateClicked ? onDateClicked(newDateStr) : null;
@@ -120,23 +118,14 @@ const BfsCalendar = ({
                   onClick={() => handleDateClicked(day)}
                 >
                   <div className="bfs-calendar-weekday">
-                    {startDate
-                      .clone()
-                      .add(day, 'd')
-                      .format('ddd')}
+                    {startDate.clone().add(day, 'd').format('ddd')}
                   </div>
                   <div className="bfs-calendar-header-date-wrapper">
                     <div className="bfs-calendar-date">
-                      {startDate
-                        .clone()
-                        .add(day, 'd')
-                        .date()}
+                      {startDate.clone().add(day, 'd').date()}
                     </div>
                     {date ===
-                      startDate
-                        .clone()
-                        .add(day, 'd')
-                        .format('YYYY-MM-DD') && (
+                      startDate.clone().add(day, 'd').format('YYYY-MM-DD') && (
                       <div>
                         <CheckCircleOutlined className="bfs-calendar-selection-mark" />
                       </div>

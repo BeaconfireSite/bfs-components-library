@@ -12,7 +12,7 @@ export default () => {
       style={{ display: 'flex' }}
       showTitle={false}
       calendarTypes={['Phone Screening', 'Technical', 'Manager Round']}
-      onCalendarsSelect={calendars => {
+      onCalendarsSelect={(calendars) => {
         console.log(calendars);
       }}
     />

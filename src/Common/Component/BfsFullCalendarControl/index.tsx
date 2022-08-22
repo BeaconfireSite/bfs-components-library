@@ -52,7 +52,7 @@ const BfsFullCalendarControl = ({
           key={calendarType}
           className="bfs-calendar-selector"
           defaultChecked={calendarSelection[calendarType]}
-          onChange={e => onChange(e, calendarType)}
+          onChange={(e) => onChange(e, calendarType)}
         >
           <div className="bfs-calendar-selector-item-label">{calendarType}</div>
         </Checkbox>
