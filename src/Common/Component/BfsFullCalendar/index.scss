@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
 .bfs-fullcalendar-wrapper {
 
     .fc {
@@ -15,7 +17,8 @@
             display: flex;
             align-items: center;
 
-            .fc-button:not(.fc-button-active), .fc-button-primary:not(.fc-button-active) {
+            .fc-button:not(.fc-button-active),
+            .fc-button-primary:not(.fc-button-active) {
                 color: #3C4043;
                 border: 1px solid #DADCE0;
                 background-color: white;
@@ -26,14 +29,11 @@
                 background-color: #1A73E8;
             }
 
-            .fc-button:active, .fc-button:focus, .fc-button-primary:active, .fc-button-primary:focus {
+            .fc-button:active,
+            .fc-button:focus,
+            .fc-button-primary:active,
+            .fc-button-primary:focus {
                 box-shadow: none;
-            }
-
-            .fc-button:focus, .fc-button-primary:focus {
-                border: 1px solid #1A73E8;
-                background-color: #1A73E8;
-                color: white;
             }
 
             .fc-toolbar-title {
@@ -43,7 +43,8 @@
                 white-space: nowrap;
             }
 
-            .fc-prev-button, .fc-next-button {
+            .fc-prev-button,
+            .fc-next-button {
                 border: none;
                 padding: 0.3em 0.65em 0.4em;
             }
@@ -55,27 +56,28 @@
             }
         }
 
-        .fc-timeGridWeek-view, .fc-timeGridDay-view {
+        .fc-timeGridWeek-view,
+        .fc-timeGridDay-view {
 
             .fc-scrollgrid.fc-scrollgrid-liquid {
                 border: none;
             }
         }
-        
+
         .bfs-fullcalendar-allday-label {
             font-size: 10px;
             color: #70757A;
             white-space: nowrap;
             -webkit-font-smoothing: subpixel-antialiased;
         }
-        
+
         .bfs-fullcalendar-timeslot-label {
             font-size: 10px;
             color: #70757A;
             white-space: nowrap;
             -webkit-font-smoothing: subpixel-antialiased;
         }
-        
+
         .fc-timegrid-axis {
             border: none !important;
         }
@@ -83,90 +85,156 @@
         .fc-timegrid-slot {
             height: 12px;
         }
-        
+
         .fc-timegrid-slot-minor {
             border: none !important;
             padding: 0 !important;
             background: none !important;
         }
-        
+
         .fc-timegrid-divider {
             display: none;
         }
-        
+
         .fc-day-today {
             background: none !important;
         }
 
-        .fc-timeGridWeek-view, .fc-timeGridDay-view {
-            
+        .fc-daygrid-day-top {
+            justify-content: center;
+
+            .fc-daygrid-day-number {
+                font-size: 12px;
+                color: #3C4043;
+            }
+        }
+
+        .fc-timeGridWeek-view,
+        .fc-timeGridDay-view {
+
             .fc-col-header-cell.fc-day {
                 border: none;
             }
         }
 
         .fc-dayGridMonth-view {
-            
+
             .fc-col-header-cell.fc-day {
                 border-bottom: none;
             }
         }
-        
+
         .fc-col-header-cell.fc-day {
-        
-            .bfs-fullcalendar-header {
-                margin: 0;
-                text-align: center;
-                width: 100%;
 
-                .bfs-fullcalendar-header-month-view {
+            .fc-col-header-cell-cushion {
+                text-decoration: none;
 
-                    &.bfs-fullcalendar-header-weekday {
-                        margin-top: 4px;
+                .bfs-fullcalendar-header {
+                    margin: 0;
+                    text-align: center;
+                    width: 100%;
+
+                    .bfs-fullcalendar-header-month-view {
+
+                        &.bfs-fullcalendar-header-weekday {
+                            margin-top: 4px;
+                        }
+                    }
+
+                    .bfs-fullcalendar-header-week-view {
+
+                        &.bfs-fullcalendar-header-weekday {
+                            line-height: 32px;
+                            margin-top: 8px;
+                        }
+                    }
+
+                    .bfs-fullcalendar-header-weekday {
+                        position: relative;
+                        z-index: 5;
+                        color: #70757a;
+                        font-size: 11px;
+                        font-weight: 500;
+                        letter-spacing: 0.8px;
+                        text-indent: 0.8px;
+                        text-transform: uppercase;
+
+                        &.bfs-fullcalendar-header-weekday-today {
+                            color: #1A73E8;
+                        }
+                    }
+
+                    .bfs-fullcalendar-header-date {
+                        font-family: 'Lato', sans-serif;
+                        cursor: pointer;
+                        position: relative;
+                        outline: none;
+                        z-index: 5;
+                        font-size: 26px;
+                        font-weight: 300;
+                        letter-spacing: -1.6px;
+                        text-indent: -2.6px;
+                        font-variant-numeric: tabular-nums;
+                        font-feature-settings: "tnum" 1;
+                        border-radius: 100%;
+                        line-height: 46px;
+                        height: 46px;
+                        margin: -8px auto 0px auto;
+                        width: 46px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        color: #3C4043;
+
+                        &.bfs-fullcalendar-header-date-today {
+                            background-color: #1A73E8;
+                            color: white;
+                        }
+
+                        &.bfs-fullcalendar-header-date-past {
+                            color: #70757A;
+                        }
+                    }
+
+                    .bfs-fullcalendar-header-date:hover {
+                        background-color: #F1F3F4;
+
+                        &.bfs-fullcalendar-header-date-today:hover {
+                            background-color: #1967D2;
+                        }
                     }
                 }
+            }
+        }
 
-                .bfs-fullcalendar-header-week-view {
+        .bfs-fullcalendar-day-cell {
+            height: 24px;
+            line-height: 24px;
+            width: max-content;
+            min-width: 24px;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            font-family: Roboto,Arial,sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: .3px;
+            display: inline-block;
+            text-align: center;
+            white-space: nowrap;
+            pointer-events: auto;
 
-                    &.bfs-fullcalendar-header-weekday {
-                        line-height: 32px;
-                        margin-top: 8px;
-                    }
-                }
-            
-                .bfs-fullcalendar-header-weekday {
-                    position: relative;
-                    z-index: 5;
-                    color: #70757a;
-                    font-size: 11px;
-                    font-weight: 500;
-                    letter-spacing: 0.8px;
-                    text-indent: 0.8px;
-                    text-transform: uppercase;
-                }
-            
-                .bfs-fullcalendar-header-date {
-                    cursor: pointer;
-                    position: relative;
-                    outline: none;
-                    z-index: 5;
-                    font-size: 26px;
-                    font-weight: 400;
-                    letter-spacing: -2.6px;
-                    text-indent: -2.6px;
-                    font-variant-numeric: tabular-nums;
-                    font-feature-settings: "tnum" 1;
-                    border-radius: 100%;
-                    line-height: 46px;
-                    height: 46px;
-                    margin: -8px auto 0px auto;
-                    width: 46px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                }
+            &.bfs-fullcalendar-day-cell-today {
+                background-color: #1A73E8;
+                color: white;
+            }
+        }
+
+        .bfs-fullcalendar-day-cell:hover {
+            background-color: #F1F3F4;
+
+            &.bfs-fullcalendar-day-cell-today {
+                background-color: #1967D2;
             }
         }
     }
 }
-

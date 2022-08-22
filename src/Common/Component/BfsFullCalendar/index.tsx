@@ -21,21 +21,27 @@ const BfsFullCalendar = React.forwardRef(
     const dayHeaderContent = (arg: any) => {
       return (
         <div className="bfs-fullcalendar-header">
-          {arg.view.type === 'timeGridWeek' ? (
+          {arg.view.type === 'timeGridWeek' ||
+          arg.view.type === 'timeGridDay' ? (
             <>
-              <div className="bfs-fullcalendar-header-week-view bfs-fullcalendar-header-weekday">
+              <div
+                className={`
+                    bfs-fullcalendar-header-week-view
+                    bfs-fullcalendar-header-weekday
+                    ${
+                      arg.isToday ? 'bfs-fullcalendar-header-weekday-today' : ''
+                    }
+                  `}
+              >
                 {arg.date.toLocaleDateString('en-US', { weekday: 'short' })}
               </div>
               <div
-                className="bfs-fullcalendar-header-date"
-                style={{
-                  color: arg.isPast
-                    ? '#70757a'
-                    : arg.isToday
-                    ? 'white'
-                    : '#3C4043',
-                  backgroundColor: arg.isToday ? '#1A73E8' : 'transparent',
-                }}
+                className={`
+                    bfs-fullcalendar-header-date
+                    ${arg.isToday ? 'bfs-fullcalendar-header-date-today' : ''}
+                    ${arg.isPast ? 'bfs-fullcalendar-header-date-past' : ''}
+
+                  `}
               >
                 {arg.date.getDate()}
               </div>
@@ -46,6 +52,20 @@ const BfsFullCalendar = React.forwardRef(
             </div>
           )}
         </div>
+      );
+    };
+
+    const datCellContent = (arg: any) => {
+      return (
+        arg.view.type === 'dayGridMonth' && (
+          <h2
+            className={`bfs-fullcalendar-day-cell ${
+              arg.isToday ? 'bfs-fullcalendar-day-cell-today' : ''
+            }`}
+          >
+            {arg.dayNumberText}
+          </h2>
+        )
       );
     };
 
@@ -81,6 +101,7 @@ const BfsFullCalendar = React.forwardRef(
           ref={ref}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           dayHeaderContent={dayHeaderContent}
+          dayCellContent={datCellContent}
           allDayContent={allDayContent}
           slotLabelContent={slotLabelContent}
           eventMinHeight={5}
@@ -99,6 +120,7 @@ const BfsFullCalendar = React.forwardRef(
             month: 'long',
           }}
           initialView={props.initialView ?? 'timeGridWeek'}
+          navLinks={props.navLinks ?? true}
           slotDuration={props.slotDuration ?? '00:15'}
           slotLabelInterval={props.slotLabelInterval ?? '01:00'}
           allDaySlot={props.allDaySlot ?? true}
