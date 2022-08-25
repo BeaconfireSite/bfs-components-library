@@ -1,12 +1,12 @@
+import { Button } from 'antd';
+import { BaseButtonProps } from 'antd/lib/button/button';
 import React, { ReactNode } from 'react';
 import './index.scss';
 
-interface Props {
+interface Props extends BaseButtonProps {
   style?: React.CSSProperties;
   className?: string;
   variant?: 'primary' | 'warning' | 'danger' | 'subtle' | 'link';
-  size?: 'small' | 'medium';
-  disabled?: boolean;
   children: ReactNode;
   [key: string]: any;
 }
@@ -15,27 +15,15 @@ const BfsButton = ({
   style = {},
   className = '',
   variant = 'primary',
-  size = 'medium',
-  disabled = false,
   children,
   ...props
 }: Props) => {
-  const buttonVariant = `bfs-button--${disabled ? 'disabled' : variant}`;
+  const buttonVariant = `bfs-button bfs-button--${variant}`;
 
   return (
-    <button
-      type="button"
-      style={style}
-      className={[
-        'bfs-button',
-        `bfs-button--${size}`,
-        buttonVariant,
-        className,
-      ].join(' ')}
-      {...props}
-    >
+    <Button className={buttonVariant} {...props}>
       {children}
-    </button>
+    </Button>
   );
 };
 

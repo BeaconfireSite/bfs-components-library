@@ -1,95 +1,142 @@
-.bfs-button {
-    font-weight: 500;
+.bfs-button.ant-btn {
     border-radius: 3px;
-    display: inline-block;
     line-height: 1;
-    cursor: pointer;
 }
 
-.bfs-button--primary {
+.bfs-button.ant-btn-default {
+    padding: 2px 12px;
+    height: 24px;
+}
+
+.bfs-button.ant-btn-sm {
+    padding: 0px 8px;
+    height: 20px;
+}
+
+.bfs-button.ant-btn-lg {
+    padding: 8px 16px;
+    height: 36px;
+}
+
+.bfs-button--primary.ant-btn {
     border: 1px solid #28A0CE;
-    color: white;
     background-color: #28A0CE;
+    color: white;
 }
 
-.bfs-button--primary:hover {
+.bfs-button--primary.ant-btn:hover {
+    border: 1px solid #38B0DE;
     background-color: #38B0DE;
+    color: white;
 }
 
-.bfs-button--primary:active {
+.bfs-button--primary.ant-btn:focus {
+    border: 1px solid #38B0DE;
+    background-color: #38B0DE;
+    color: white;
+}
+
+.bfs-button--primary.ant-btn:active {
+    border: 1px solid #174488;
     background-color: #174488;
+    color: white;
 }
 
-.bfs-button--warning {
+.bfs-button--warning.ant-btn {
     border: 1px solid #FFB121;
-    color: white;
     background-color: #FFB121;
-}
-
-.bfs-button--warning:hover {
-    background-color: #FFC131;
-}
-
-.bfs-button--warning:active {
-    background-color: #EFA111;
-}
-
-.bfs-button--danger {
-    border: 1px solid #F67C6B;
     color: white;
+}
+
+.bfs-button--warning.ant-btn:hover {
+    border: 1px solid #FFB121;
+    background-color: #FFC131;
+    color: white;
+}
+
+.bfs-button--warning.ant-btn:focus {
+    border: 1px solid #FFB121;
+    background-color: #FFC131;
+    color: white;
+}
+
+.bfs-button--warning.ant-btn:active {
+    border: 1px solid #FFB121;
+    background-color: #EFA111;
+    color: white;
+}
+
+.bfs-button--danger.ant-btn {
+    border: 1px solid #F67C6B;
     background-color: #F67C6B;
+    color: white;
 }
 
-.bfs-button--danger:hover {
+.bfs-button--danger.ant-btn:hover {
+    border: 1px solid #F67C6B;
     background-color: #FF8C7B;
+    color: white;
 }
 
-.bfs-button--danger:active {
+.bfs-button--danger.ant-btn:focus {
+    border: 1px solid #F67C6B;
+    background-color: #FF8C7B;
+    color: white;
+}
+
+.bfs-button--danger.ant-btn:active {
+    border: 1px solid #F67C6B;
     background-color: #E66C5B;
+    color: white;
 }
 
-.bfs-button--subtle {
+.bfs-button--subtle.ant-btn {
     border: 1px solid #95A5AC;
-    color: #95A5AC;
     background-color: white;
+    color: #95A5AC;
 }
 
-.bfs-button--subtle:hover {
+.bfs-button--subtle.ant-btn:hover {
     border: 1px solid #95A5AC;
     background-color: #E0E0E0;
+    color: #95A5AC;
 }
 
-.bfs-button--subtle:active {
+.bfs-button--subtle.ant-btn:focus {
+    border: 1px solid #95A5AC;
+    background-color: #E0E0E0;
+    color: #95A5AC;
+}
+
+.bfs-button--subtle.ant-btn:active {
     border: 1px solid #F0F0F0;
     background-color: #F0F0F0;
+    color: #95A5AC;
 }
 
-.bfs-button--link {
+.bfs-button--link.ant-btn {
     border: 1px solid transparent;
-    color: #28A0CE;
     background: none;
+    color: #28A0CE;
 }
 
-.bfs-button--link:hover {
+.bfs-button--link.ant-btn:hover {
     text-decoration: underline;
+    border: 1px solid transparent;
+    background: none;
+    color: #28A0CE;
 }
 
-.bfs-button--link:active {
+.bfs-button--link.ant-btn:focus {
+    text-decoration: underline;
+    border: 1px solid transparent;
+    background: none;
+    color: #28A0CE;
+}
+
+.bfs-button--link.ant-btn:active {
     text-decoration: none;
+    border: 1px solid transparent;
+    background: none;
     color: #174488;
-}
-
-.bfs-button--disabled {
-    cursor: default;
-    border: 1px solid #E0E0E0;
-    color: white;
-    background-color: #E0E0E0;
-}
-
-.bfs-button--small {
-    padding: 2px 12px;
-}
-
-.bfs-button--medium {
-    padding: 6px 12px;
 }
