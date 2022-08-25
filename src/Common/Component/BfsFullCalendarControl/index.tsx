@@ -8,11 +8,11 @@ import './index.scss';
 const CustomCheckbox = styled(Checkbox)`
   ${(props: any) => `
       & .ant-checkbox-checked .ant-checkbox-inner {
-        background-color: ${props.color};
-        border: 2px solid ${props.color};
+        background-color: ${props.theme};
+        border: 2px solid ${props.theme};
       }
       .ant-checkbox-inner {
-        border: 2px solid ${props.color};
+        border: 2px solid ${props.theme};
       }
   `}
 `;
@@ -67,7 +67,7 @@ const BfsFullCalendarControl = ({
             className="bfs-calendar-selector"
             defaultChecked={calendarSelection[calendarType.name]}
             onChange={(e) => onChange(e, calendarType)}
-            color={calendarType.color}
+            theme={calendarType.color}
           >
             <div className="bfs-calendar-selector-item-label">
               {calendarType.name}
