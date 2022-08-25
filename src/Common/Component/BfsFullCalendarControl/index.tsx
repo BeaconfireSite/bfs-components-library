@@ -1,14 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { Checkbox } from 'antd';
+import styled from 'styled-components';
 
 import 'antd/dist/antd.css';
 import './index.scss';
+
+const CustomCheckbox = styled(Checkbox)`
+  ${(props: any) => `
+      & .ant-checkbox-checked .ant-checkbox-inner {
+        background-color: ${props.color};
+        border: 2px solid ${props.color};
+      }
+      .ant-checkbox-inner {
+        border: 2px solid ${props.color};
+      }
+  `}
+`;
 
 interface Props {
   style?: React.CSSProperties;
   className?: string;
   showTitle?: boolean;
-  calendarTypes?: string[];
+  calendarTypes?: any[];
   defaultSelection?: any;
   onCalendarsSelect: (selectedCalendars: any) => void;
 }
@@ -19,7 +32,7 @@ const BfsFullCalendarControl = ({
   showTitle = true,
   calendarTypes = [],
   defaultSelection = calendarTypes.reduce(
-    (x, key) => ({ ...x, [key]: true }),
+    (x, type) => ({ ...x, [type.name]: true }),
     {},
   ),
   onCalendarsSelect,
@@ -47,16 +60,21 @@ const BfsFullCalendarControl = ({
       {showTitle && (
         <div className="bfs-calendar-selector-label">Calendars</div>
       )}
-      {calendarTypes.map((calendarType: string) => (
-        <Checkbox
-          key={calendarType}
-          className="bfs-calendar-selector"
-          defaultChecked={calendarSelection[calendarType]}
-          onChange={(e) => onChange(e, calendarType)}
-        >
-          <div className="bfs-calendar-selector-item-label">{calendarType}</div>
-        </Checkbox>
-      ))}
+      {calendarTypes.map(
+        (calendarType: { id: string; name: string; color: string }) => (
+          <CustomCheckbox
+            key={calendarType.id}
+            className="bfs-calendar-selector"
+            defaultChecked={calendarSelection[calendarType.name]}
+            onChange={(e) => onChange(e, calendarType)}
+            color={calendarType.color}
+          >
+            <div className="bfs-calendar-selector-item-label">
+              {calendarType.name}
+            </div>
+          </CustomCheckbox>
+        ),
+      )}
     </div>
   );
 };

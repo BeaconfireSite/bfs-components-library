@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "bfs-components-library",
-  "version": "0.2.32",
+  "version": "0.2.33",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -41,9 +41,11 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "sass": "^1.53.0",
+    "styled-components": "^5.3.5",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@types/styled-components": "^5.1.26",
     "@types/uuid": "^8.3.4",
     "@umijs/plugin-sass": "^1.1.1",
     "dumi": "^1.1.0",
