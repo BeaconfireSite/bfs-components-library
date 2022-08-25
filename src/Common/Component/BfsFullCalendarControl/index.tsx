@@ -12,8 +12,9 @@ const CustomCheckbox = styled(Checkbox)`
         border: 2px solid ${props.theme};
       }
       .ant-checkbox-inner {
-        border: 2px solid ${props.theme};
+        border-color: ${props.theme} !important;
       }
+      
   `}
 `;
 
