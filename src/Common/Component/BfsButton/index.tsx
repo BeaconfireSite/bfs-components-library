@@ -18,10 +18,10 @@ const BfsButton = ({
   children,
   ...props
 }: Props) => {
-  const buttonVariant = `bfs-button bfs-button--${variant}`;
+  const buttonVariant = `${className} bfs-button bfs-button--${variant}`;
 
   return (
-    <Button className={buttonVariant} {...props}>
+    <Button className={buttonVariant} style={style} {...props}>
       {children}
     </Button>
   );
