@@ -30,7 +30,7 @@ export default () => {
       <BfsButton variant="link">Button</BfsButton>
       <br />
       <br />
-      <BfsButton variant="primary" disabled>
+      <BfsButton variant="warning" disabled>
         Button
       </BfsButton>
     </div>
