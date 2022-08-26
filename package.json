@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "bfs-components-library",
-  "version": "0.2.40",
+  "version": "0.2.41",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -32,11 +32,10 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
-    "@fullcalendar/core": "^5.11.3",
-    "@fullcalendar/daygrid": "^5.11.3",
+    "@fullcalendar/daygrid": "^5.11.0",
     "@fullcalendar/interaction": "^5.11.0",
-    "@fullcalendar/react": "^5.11.2",
-    "@fullcalendar/timegrid": "^5.11.3",
+    "@fullcalendar/react": "^5.11.1",
+    "@fullcalendar/timegrid": "^5.11.0",
     "antd": "^4.22.6",
     "classnames": "^2.3.1",
     "moment": "^2.29.4",
