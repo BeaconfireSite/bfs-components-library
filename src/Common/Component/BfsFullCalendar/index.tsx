@@ -121,6 +121,7 @@ const BfsFullCalendar = React.forwardRef(
           slotDuration={props.slotDuration ?? '00:15'}
           slotLabelInterval={props.slotLabelInterval ?? '01:00'}
           allDaySlot={props.allDaySlot ?? true}
+          unselectAuto={false}
           {...props}
         />
       </div>
