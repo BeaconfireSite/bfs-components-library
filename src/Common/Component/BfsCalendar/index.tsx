@@ -53,7 +53,7 @@ const BfsCalendar = ({
   style = {},
   className = '',
   dateSelectable = true,
-  startOfWeek = moment().startOf('isoWeek'),
+  startOfWeek = moment().startOf('week').add(1, 'd'),
   renderContent = defaultRenderContent,
   onDateClicked,
   onStartOfWeekChanged,
@@ -82,12 +82,27 @@ const BfsCalendar = ({
     }
   };
 
+  const header = () => {
+    const endOfWeek = startDate.clone().add(5, 'd');
+    if (startDate.year() === endOfWeek.year()) {
+      if (startDate.month() === endOfWeek.month()) {
+        return startDate.format('MMMM YYYY');
+      } else {
+        return `${startDate.format('MMM')} - ${endOfWeek.format(
+          'MMM',
+        )} ${startDate.format('YYYY')}`;
+      }
+    } else {
+      return `${startDate.format('MMM YYYY')} - ${endOfWeek.format(
+        'MMM YYYY',
+      )}`;
+    }
+  };
+
   return (
     <div className={`bfs-calendar-wrapper ${className}`} style={style}>
       <div className="bfs-calendar-header">
-        <div className="bfs-calendar-header-month">
-          {startDate.format('MMMM YYYY')}
-        </div>
+        <div className="bfs-calendar-header-month">{header()}</div>
         <div className="bfs-calendar-header-action">
           <div
             className="bfs-calendar-header-action-prev"
