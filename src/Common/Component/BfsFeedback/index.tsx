@@ -86,12 +86,13 @@ const BfsFeedback = ({
                 <div className="bfs-feedback-section" key={subject}>
                   <div className="bfs-feedback-section-title">{subject}</div>
                   <div className="bfs-feedback-section-body">{comment}</div>
-                  {score && (
-                    <div className="bfs-feedback-section-score">
-                      {'Score: '}
-                      <span>{score}</span>
-                    </div>
-                  )}
+                  {score ||
+                    (score === 0 && (
+                      <div className="bfs-feedback-section-score">
+                        {'Score: '}
+                        <span>{score}</span>
+                      </div>
+                    ))}
                 </div>
               ),
             )}
