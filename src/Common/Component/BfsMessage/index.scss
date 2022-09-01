@@ -1,5 +1,5 @@
 .ant-message-notice-content {
-  padding: 0;
+  padding: 0 !important;
   border-radius: 3px;
 }
 
@@ -36,6 +36,7 @@
   font-size: 16px;
   font-weight: 700;
 }
+
 .bfs-message-content-text {
   font-size: 14px;
   line-height: 20px;
@@ -48,6 +49,7 @@
   line-height: 20px;
   color: #2875d0;
 }
+
 .bfs-message-content-dismiss {
   width: 64px;
   height: 76px;

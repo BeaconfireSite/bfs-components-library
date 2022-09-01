@@ -2,6 +2,7 @@ import React from 'react';
 import { message } from 'antd';
 import { v4 as uuidv4 } from 'uuid';
 import Message, { BfsMessageType } from './Message';
+
 interface MessageArgs {
   type: BfsMessageType;
   title?: string;
@@ -9,7 +10,7 @@ interface MessageArgs {
   actionLink?: string;
   actionTitle?: string;
 }
-// duration in seconds
+
 const openMessage = (messageProps: MessageArgs, duration: number = 0) => {
   const key = uuidv4();
   message.open({
@@ -39,4 +40,5 @@ const BfsMessage: {
   WARNING: 'warning',
   ERROR: 'error',
 };
+
 export default BfsMessage;
