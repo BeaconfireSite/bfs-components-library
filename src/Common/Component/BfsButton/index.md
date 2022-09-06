@@ -9,19 +9,20 @@ import { BfsButton } from 'bfs-components-library';
 export default () => {
   return (
     <div>
-      <BfsButton variant="primary" size="small">
+      <BfsButton variant="default" size="small">
         Button
       </BfsButton>
       <br />
       <br />
-      <BfsButton variant="warning" size="middle">
+      <BfsButton variant="primary" size="middle">
         Button
       </BfsButton>
       <br />
       <br />
-      <BfsButton variant="danger" size="large">
-        Button
-      </BfsButton>
+      <BfsButton variant="warning">Button</BfsButton>
+      <br />
+      <br />
+      <BfsButton variant="danger">Button</BfsButton>
       <br />
       <br />
       <BfsButton variant="subtle">Button</BfsButton>

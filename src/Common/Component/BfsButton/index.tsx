@@ -6,7 +6,7 @@ import './index.scss';
 interface Props extends BaseButtonProps {
   style?: React.CSSProperties;
   className?: string;
-  variant?: 'primary' | 'warning' | 'danger' | 'subtle' | 'link';
+  variant?: 'default' | 'primary' | 'warning' | 'danger' | 'subtle' | 'link';
   children: ReactNode;
   [key: string]: any;
 }
@@ -14,11 +14,11 @@ interface Props extends BaseButtonProps {
 const BfsButton = ({
   style = {},
   className = '',
-  variant = 'primary',
+  variant = 'default',
   children,
   ...props
 }: Props) => {
-  const buttonVariant = `${className} bfs-button bfs-button--${variant}`;
+  const buttonVariant = `bfs-button bfs-button--${variant} ${className} `;
 
   return (
     <Button className={buttonVariant} style={style} {...props}>
