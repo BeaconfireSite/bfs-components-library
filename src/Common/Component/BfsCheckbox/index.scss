@@ -1,21 +1,19 @@
-.ant-checkbox:hover::after,
-.ant-checkbox-wrapper:hover .ant-checkbox::after {
+.bfs-checkbox.ant-checkbox-wrapper:hover .ant-checkbox::after,
+.bfs-checkbox .ant-checkbox:hover::after {
     visibility: hidden;
 }
 
-.ant-checkbox-wrapper {
+.bfs-checkbox.ant-checkbox-wrapper {
     color: #3C4043;
     line-height: 16px;
     padding: 6px 0px;
+    margin: 0;
     align-items: center;
 
-    &.bfs-checkbox {
-
-        .bfs-checkbox-label {
-            white-space: nowrap;
-            vertical-align: top;
-            padding-left: 2px;
-        }
+    .bfs-checkbox-label {
+        white-space: nowrap;
+        vertical-align: top;
+        padding-left: 2px;
     }
 
     .ant-checkbox {
