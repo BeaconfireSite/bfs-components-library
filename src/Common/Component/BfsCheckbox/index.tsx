@@ -18,13 +18,18 @@ const CustomCheckbox = styled(Checkbox)`
 `;
 
 interface Props extends CheckboxProps {
-  color: string;
+  color?: string;
   children: React.ReactNode;
+  className?: string;
 }
 
-const BfsCheckbox = ({ color, children }: Props) => {
+const BfsCheckbox = ({ color, children, className, ...props }: Props) => {
   return (
-    <CustomCheckbox className="bfs-checkbox" theme={color}>
+    <CustomCheckbox
+      className={`bfs-checkbox ${className}`}
+      theme={color}
+      {...props}
+    >
       <div className="bfs-checkbox-label">{children}</div>
     </CustomCheckbox>
   );
