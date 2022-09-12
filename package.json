@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "bfs-components-library",
-  "version": "0.2.51",
+  "version": "0.2.52",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",

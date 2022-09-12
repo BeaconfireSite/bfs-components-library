@@ -28,6 +28,7 @@ export default () => {
           console.log(selectionInfo.endStr);
         }}
         events={[]}
+        eventClick={console.log}
       />
     </>
   );
