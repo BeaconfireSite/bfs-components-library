@@ -122,7 +122,25 @@ const BfsFullCalendar = React.forwardRef(
           slotLabelInterval={props.slotLabelInterval ?? '01:00'}
           allDaySlot={props.allDaySlot ?? true}
           unselectAuto={false}
+          nowIndicator={true}
+          selectConstraint={{
+            start: new Date(),
+            end: new Date().setFullYear(10000),
+          }}
           {...props}
+          events={
+            Array.isArray(props.events)
+              ? [
+                  ...props.events,
+                  {
+                    start: new Date(0),
+                    end: new Date(),
+                    display: 'background',
+                    color: '#D0D0D0',
+                  },
+                ]
+              : props.events
+          }
         />
       </div>
     );

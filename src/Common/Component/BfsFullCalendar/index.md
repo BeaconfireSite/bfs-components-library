@@ -12,8 +12,8 @@ export default () => {
     const calendarApi = calendarRef.current.getApi();
     calendarApi.addEvent({
       title: 'New Event',
-      start: new Date(),
-      end: new Date(),
+      start: new Date().setDate(11),
+      end: new Date().setDate(11),
     });
   };
 
@@ -27,6 +27,7 @@ export default () => {
           console.log(selectionInfo.startStr);
           console.log(selectionInfo.endStr);
         }}
+        events={[]}
       />
     </>
   );
