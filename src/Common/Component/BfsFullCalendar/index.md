@@ -29,6 +29,8 @@ export default () => {
         }}
         events={[]}
         eventClick={console.log}
+        highlightPast={true}
+        pastHighlightColor={'#E8E8E8'}
       />
     </>
   );

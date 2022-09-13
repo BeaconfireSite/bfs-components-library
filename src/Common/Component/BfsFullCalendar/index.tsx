@@ -10,6 +10,9 @@ import './index.scss';
 interface Props extends CalendarOptions {
   style?: React.CSSProperties;
   className?: string;
+  pastSelectable?: boolean;
+  pastHighlightColor?: string;
+  highlightPast?: boolean;
   [key: string]: any;
 }
 
@@ -123,20 +126,24 @@ const BfsFullCalendar = React.forwardRef(
           allDaySlot={props.allDaySlot ?? true}
           unselectAuto={false}
           nowIndicator={true}
-          selectConstraint={{
-            start: new Date(),
-            end: new Date().setFullYear(10000),
-          }}
+          selectConstraint={
+            props.pastSelectable
+              ? undefined
+              : {
+                  start: new Date(),
+                  end: new Date().setFullYear(10000),
+                }
+          }
           {...props}
           events={
-            Array.isArray(props.events)
+            Array.isArray(props.events) && props.highlightPast
               ? [
                   ...props.events,
                   {
                     start: new Date(0),
                     end: new Date(),
                     display: 'background',
-                    color: '#D0D0D0',
+                    color: props.pastHighlightColor || '#E8E8E8',
                   },
                 ]
               : props.events
