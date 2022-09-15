@@ -5,6 +5,7 @@ import moment from 'moment';
 
 import './index.scss';
 import BfsComment from '@/Common/Component/BfsComment';
+import { Tag } from 'antd';
 
 interface FeedbackProps {
   raterId?: string;
@@ -39,6 +40,13 @@ const BfsFeedback = ({
   showAction = false,
   feedback,
 }: Props) => {
+  const colorMap = {
+    'High Pass': 'yellow',
+    Pass: 'blue',
+    'Low Pass': 'purple',
+    Fail: 'grey',
+  };
+
   return (
     <div
       className={`${className} bfs-feedback`}
@@ -61,6 +69,22 @@ const BfsFeedback = ({
               <MoreOutlined className="bfs-feedback-header-icon" />
             )}
           </div>
+        )}
+        {feedback?.interviewResult && (
+          <Tag
+            color={
+              colorMap[
+                feedback?.interviewResult as
+                  | 'High Pass'
+                  | 'Pass'
+                  | 'Low Pass'
+                  | 'Fail'
+              ]
+            }
+            style={{ width: 'min-content', marginBottom: 8 }}
+          >
+            {feedback?.interviewResult}
+          </Tag>
         )}
         <BfsComment
           commentBy={feedback?.raterName ?? '--'}

@@ -16,7 +16,7 @@ export default () => {
       feedbackDateTime: '2020-01-01T00:00:00',
       overallComment: 'Good',
       overallScore: 5,
-      interviewResult: '5',
+      interviewResult: 'Fail',
       subitems: [
         {
           subject: 'Communication',
