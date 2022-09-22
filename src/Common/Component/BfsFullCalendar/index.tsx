@@ -134,7 +134,7 @@ const BfsFullCalendar = React.forwardRef(
           unselectAuto={false}
           nowIndicator={true}
           selectConstraint={
-            props.pastSelectable
+            pastSelectable
               ? undefined
               : {
                   start: new Date(),
@@ -143,14 +143,14 @@ const BfsFullCalendar = React.forwardRef(
           }
           {...props}
           events={
-            Array.isArray(props.events) && props.highlightPast
+            Array.isArray(props.events) && highlightPast
               ? [
                   ...props.events,
                   {
                     start: new Date(0),
                     end: new Date(),
                     display: 'background',
-                    color: props.pastHighlightColor || '#E8E8E8',
+                    color: pastHighlightColor || '#E8E8E8',
                   },
                 ]
               : props.events
