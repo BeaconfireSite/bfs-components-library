@@ -18,7 +18,14 @@ interface Props extends CalendarOptions {
 
 const BfsFullCalendar = React.forwardRef(
   (
-    { style = {}, className = '', ...props }: Props,
+    {
+      style = {},
+      className = '',
+      pastSelectable,
+      pastHighlightColor,
+      highlightPast,
+      ...props
+    }: Props,
     ref: LegacyRef<FullCalendar>,
   ) => {
     const dayHeaderContent = (arg: any) => {
