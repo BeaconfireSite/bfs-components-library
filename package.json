@@ -1,15 +1,15 @@
 {
   "private": false,
   "name": "bfs-components-library",
-  "version": "0.2.56",
+  "version": "0.2.57",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
     "docs:deploy": "gh-pages -d docs-dist",
     "build": "father-build",
     "deploy": "npm run docs:build && npm run docs:deploy",
-    "release": "npm run build && npm publish",
-    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\""
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "bfs-release": "bash ./bfs-release.sh"
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
